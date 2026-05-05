@@ -1,1065 +1,904 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Chriss Forex Trading</title>
+  <title>ChrissFX1 — Forex & Gold Trading Mentor | Rwanda</title>
+  <link rel="icon" type="image/png" href="ChatGPT Image May 3, 2026, 05_22_59 PM.png">
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="robots" content="index,follow"/>
-  <meta name="description" content="Chriss Forex Trading - Forex and Gold trading mentor based in Rwanda. Learn discipline, risk management, and smart trading strategies."/>
+  <meta name="description" content="Chrissfx1 — Forex and Gold trading mentor based in Rwanda. Learn discipline, risk management, and smart trading strategies."/>
   <meta name="theme-color" content="#000000"/>
   <link rel="manifest" id="pwa-manifest"/>
-
-  <!-- Fonts -->
-  <style>
-    @font-face {
-      font-family: 'Plus Jakarta Sans';
-      src: url('https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Jo02S2CgOva.woff2');
-      font-weight: 200 800;
-    }
-    @font-face {
-      font-family: 'Plus Jakarta Sans';
-      src: url('https://fonts.gstatic.com/s/plusjakartasans/v12/LDIuaomQNQcsA88c7O9yZ4KMCoOg4Koz0yyghfvaV-E.woff2');
-      font-style: italic;
-      font-weight: 200 800;
-    }
-    @font-face {
-      font-family: Inter;
-      src: url('https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTfvgaQc78lA2.woff2');
-      font-weight: 100 900;
-    }
-  </style>
-
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 /* ===== RESET & BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --pink: #cf549e;
-  --pink-dark: #b9227d;
-  --gold: #ffb347;
-  --green: #28E98C;
-  --dark: #000000;
-  --card-bg: #0d0d0d;
-  --border: rgba(255,255,255,0.08);
-  --text-muted: #CBCBCB;
-  --radius: 12px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#cf549e;
+  --pink-dark:#b9227d;
+  --gold:#ffb347;
+  --green:#28E98C;
+  --dark:#000;
+  --card-bg:#0d0d0d;
+  --border:rgba(255,255,255,0.08);
+  --text-muted:#CBCBCB;
+  --radius:12px;
+  --wa-green:#25D366;
 }
-html { scroll-behavior: smooth; }
-body {
-  background: #000;
-  color: #fff;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  overflow-x: hidden;
+html{scroll-behavior:smooth}
+body{
+  background:#000;
+  color:#fff;
+  font-family:'DM Sans',Arial,sans-serif;
+  font-size:1rem;
+  line-height:1.7;
+  overflow-x:hidden;
 }
 
-/* ===== ANIMATED BACKGROUND ===== */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
+/* ===== ANIMATED BG ===== */
+body::before{
+  content:'';position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(207,84,158,0.13) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(40,233,140,0.07) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,179,71,0.04) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: bgPulse 8s ease-in-out infinite alternate;
+    radial-gradient(ellipse 80% 60% at 10% 0%,rgba(207,84,158,0.13) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%,rgba(40,233,140,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%,rgba(255,179,71,0.04) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+  animation:bgPulse 8s ease-in-out infinite alternate;
 }
-@keyframes bgPulse {
-  0% { opacity: 0.7; }
-  100% { opacity: 1; }
+@keyframes bgPulse{0%{opacity:.7}100%{opacity:1}}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.4;
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:var(--pink);border-radius:4px}
+
+/* ===================================================
+   INTRO SCREEN — with PHOTO SLIDESHOW
+   =================================================== */
+#intro-screen{
+  position:fixed;inset:0;z-index:99999;
+  background:#000;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+  transition:opacity .8s ease,transform .8s ease;
+}
+#intro-screen.hide{opacity:0;transform:scale(1.04);pointer-events:none}
+
+/* Slideshow background */
+.intro-slides{
+  position:absolute;inset:0;z-index:0;
+}
+.intro-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;
+  animation:slideShow 20s infinite;
+  transform:scale(1.08);
+}
+.intro-slide:nth-child(1){animation-delay:0s;   background-image:url('https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png')}
+.intro-slide:nth-child(2){animation-delay:5s;   background-image:url('https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/dea31fe9-a5b8-4231-a069-f1f42c2b7b0a__screenshot-from-2026-04-27-03-07-29.png')}
+.intro-slide:nth-child(3){animation-delay:10s;  background-image:url('https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/836c89a8-b1bd-48b2-ac07-1283d494028b__screenshot-from-2026-05-02-03-39-16.png')}
+.intro-slide:nth-child(4){animation-delay:15s;  background-image:url('https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/e86ba699-ca83-4718-a328-7c6d3c301a5b__screenshot-from-2026-05-02-03-46-54.png')}
+.intro-slide:nth-child(4){animation-delay:15s;  background-image:url('./ChatGPT Image May 4, 2026, 02_55_43 AM.png')}
+@keyframes slideShow{
+  0%{opacity:0;transform:scale(1.08)}
+  5%{opacity:1;transform:scale(1.05)}
+  20%{opacity:1;transform:scale(1)}
+  25%{opacity:0;transform:scale(.98)}
+  100%{opacity:0;transform:scale(.98)}
 }
 
-/* ===== NOISE TEXTURE OVERLAY ===== */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
+/* Dark overlay on slideshow */
+.intro-overlay-dark{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.75) 100%);
+}
+/* Animated grid on top */
+.intro-grid-anim{
+  position:absolute;inset:0;z-index:2;
+  background-image:linear-gradient(rgba(207,84,158,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(207,84,158,.06) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridScroll 20s linear infinite;
+}
+@keyframes gridScroll{from{background-position:0 0}to{background-position:60px 60px}}
+/* Pink glow */
+.intro-glow{
+  position:absolute;inset:0;z-index:2;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(207,84,158,.18) 0%,transparent 70%);
+  pointer-events:none;
 }
 
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 4px; }
+/* Slide dots indicator */
+.intro-dots{
+  display:flex;gap:8px;margin-bottom:20px;z-index:3;
+  animation:introFadeUp .8s .3s ease both;
+}
+.intro-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.3);
+  transition:all .4s;
+}
+.intro-dot.active{background:var(--pink);width:20px;border-radius:4px}
 
-/* ===== LAYOUT ===== */
-.gjs-container { width: 90%; margin: 0 auto; max-width: 1200px; position: relative; z-index: 1; }
-.gjs-section { display: flex; padding: 60px 0; }
-.gjs-plg-flex-row { display: flex; align-items: stretch; flex-wrap: nowrap; }
-.gjs-plg-flex-column { flex-grow: 1; }
-.gjs-icon { display: inline-block; text-decoration: none; color: inherit; vertical-align: middle; fill: currentColor; width: 50px; height: 50px; }
-.gjs-link-box { color: inherit; display: inline-block; vertical-align: top; padding: 10px; max-width: 100%; text-decoration: none; }
-.gjs-divider { height: 1px; background: var(--border); margin: 16px 0; }
+#intro-content{position:relative;z-index:3;text-align:center;padding:24px}
+#intro-powered{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:8px;
+  animation:introFadeUp .8s ease both;
+}
+#intro-logo{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(32px,7vw,72px);font-weight:800;
+  color:#fff;letter-spacing:-2px;line-height:1.05;margin-bottom:8px;
+  animation:introFadeUp 1s ease both;
+  text-shadow:0 0 60px rgba(207,84,158,.4);
+}
+#intro-logo span{color:var(--pink)}
+#intro-tagline{
+  font-size:clamp(12px,2vw,16px);color:rgba(255,255,255,.65);
+  font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:32px;animation:introFadeUp 1s .15s ease both;
+}
+/* Animated ticker */
+.intro-ticker{
+  display:flex;align-items:center;gap:20px;
+  background:rgba(0,0,0,.5);backdrop-filter:blur(10px);
+  border:1px solid rgba(207,84,158,.3);border-radius:30px;
+  padding:8px 20px;margin:0 auto 28px;
+  width:fit-content;max-width:90vw;overflow:hidden;
+  animation:introFadeUp 1s .25s ease both;
+}
+.ticker-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;white-space:nowrap;
+  color:rgba(255,255,255,.8);
+}
+.ticker-up{color:var(--green)}
+.ticker-down{color:#f66}
+.ticker-sep{color:rgba(255,255,255,.2);font-size:16px}
 
-/* ===== PWA INSTALL BANNER ===== */
-#pwa-banner {
-  display: none;
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%) translateY(120px);
-  z-index: 9999;
-  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-  border: 1px solid rgba(207,84,158,0.4);
-  border-radius: 16px;
-  padding: 16px 20px;
-  box-shadow: 0 8px 40px rgba(207,84,158,0.25), 0 0 0 1px rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  min-width: 320px;
-  max-width: 420px;
-  width: calc(100vw - 40px);
-  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
-  opacity: 0;
+#intro-timer{position:relative;width:64px;height:64px;margin:0 auto 24px;animation:introFadeUp 1s .3s ease both}
+#intro-timer svg{transform:rotate(-90deg)}
+#intro-timer-track{stroke:rgba(255,255,255,.1)}
+#intro-timer-fill{stroke:var(--pink);stroke-linecap:round;stroke-dasharray:163;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear}
+#intro-timer-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;font-family:'Syne',sans-serif}
+#intro-proceed-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 44px;
+  background:linear-gradient(135deg,var(--pink) 0%,var(--pink-dark) 100%);
+  color:#fff;border:none;border-radius:50px;
+  font-family:'Syne',sans-serif;font-size:17px;font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 40px rgba(207,84,158,.5),0 0 0 0 rgba(207,84,158,.4);
+  opacity:0;pointer-events:none;
+  transition:transform .2s ease,box-shadow .2s ease,opacity .6s ease;
+  letter-spacing:.5px;
 }
-#pwa-banner.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-  display: block !important;
+#intro-proceed-btn.visible{opacity:1;pointer-events:auto;animation:btnPulse 2.5s ease-in-out infinite}
+#intro-proceed-btn:hover{transform:scale(1.05) translateY(-3px)}
+#intro-proceed-btn svg{width:20px;height:20px;flex-shrink:0}
+#intro-skip{
+  position:absolute;top:20px;right:24px;
+  color:rgba(255,255,255,.4);font-size:13px;cursor:pointer;
+  border:none;background:rgba(0,0,0,.3);
+  backdrop-filter:blur(8px);
+  border-radius:20px;padding:6px 16px;
+  letter-spacing:.5px;
+  transition:all .2s;z-index:4;
 }
-#pwa-banner .banner-inner {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-#pwa-banner .banner-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 22px;
-}
-#pwa-banner .banner-text { flex: 1; }
-#pwa-banner .banner-text strong { display: block; font-size: 14px; color: #fff; margin-bottom: 2px; }
-#pwa-banner .banner-text span { font-size: 12px; color: var(--text-muted); }
-#pwa-banner .banner-actions { display: flex; gap: 8px; margin-top: 12px; }
-#pwa-install-btn {
-  flex: 1;
-  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.3px;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-#pwa-install-btn:hover { transform: scale(1.03); box-shadow: 0 4px 20px rgba(207,84,158,0.5); }
-#pwa-dismiss-btn {
-  background: rgba(255,255,255,0.06);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-#pwa-dismiss-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-#pwa-banner .banner-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 1;
-  padding: 2px 4px;
-  transition: color 0.2s;
-}
-#pwa-banner .banner-close:hover { color: #fff; }
-
-/* Update toast */
-#update-toast {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9998;
-  background: #111;
-  border: 1px solid var(--green);
-  border-radius: 12px;
-  padding: 14px 18px;
-  box-shadow: 0 4px 30px rgba(40,233,140,0.2);
-  font-size: 13px;
-  max-width: 280px;
-  animation: slideInRight 0.4s ease;
-}
-#update-toast.show { display: flex; align-items: center; gap: 10px; }
-#update-toast button {
-  background: var(--green);
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-}
-@keyframes slideInRight {
-  from { transform: translateX(120%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+#intro-skip:hover{color:#fff;background:rgba(207,84,158,.3)}
+@keyframes introFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 8px 40px rgba(207,84,158,.5),0 0 0 0 rgba(207,84,158,.4)}
+  50%{box-shadow:0 8px 40px rgba(207,84,158,.5),0 0 0 16px rgba(207,84,158,0)}
 }
 
-/* ===== HERO SECTION ===== */
-#ipeo {
-  position: relative;
-  overflow: visible;
+/* ===== TOP BAR ===== */
+#top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(0,0,0,.85);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;height:52px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-#ie3jp {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: nowrap;
-  min-height: 100vh;
+#top-bar-left{font-family:'Syne',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+#top-bar-brand{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+#top-bar-brand span{color:var(--pink)}
+#top-bar-nav{display:flex;gap:20px;align-items:center}
+#top-bar-nav a{
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.5);
+  text-decoration:none;letter-spacing:.5px;transition:color .2s;
+  white-space:nowrap;
+}
+#top-bar-nav a:hover{color:#fff}
+.top-bar-wa{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 16px;border-radius:20px;
+  background:linear-gradient(135deg,#25D366,#128c7e);
+  color:#fff;font-size:12px;font-weight:700;
+  text-decoration:none;transition:opacity .2s,transform .2s;
+  white-space:nowrap;flex-shrink:0;
+}
+.top-bar-wa:hover{opacity:.85;transform:scale(1.03)}
+
+/* Hamburger */
+#hamburger-btn{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+#hamburger-btn span{
+  display:block;width:24px;height:2px;
+  background:#fff;border-radius:2px;
+  transition:all .3s ease;
+}
+#hamburger-btn.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+#hamburger-btn.open span:nth-child(2){opacity:0}
+#hamburger-btn.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile Nav Drawer */
+#mobile-nav{
+  display:none;
+  position:fixed;top:52px;left:0;right:0;z-index:999;
+  background:rgba(5,5,5,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0;max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .3s;
+}
+#mobile-nav.open{max-height:600px;padding:20px 0 24px}
+#mobile-nav a{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 28px;font-size:15px;font-weight:600;
+  color:rgba(255,255,255,.7);text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:color .2s,background .2s;
+}
+#mobile-nav a:hover{color:#fff;background:rgba(207,84,158,.08)}
+#mobile-nav .mob-wa{
+  margin:16px 28px 0;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 20px;border-radius:12px;
+  background:linear-gradient(135deg,#25D366,#128c7e);
+  color:#fff;font-size:14px;font-weight:700;
+  text-decoration:none;
 }
 
-/* Profile sidebar — fixed while right side scrolls */
-#ipec4 {
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-  flex: 0 0 300px;
-  max-width: 300px;
-  min-width: 240px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  overflow: hidden;
-}
-#iya3i {
-  width: 100%;
-  border-radius: 20px;
-  display: block;
-  box-shadow: 0 20px 60px rgba(207,84,158,0.2);
-  border: 1px solid rgba(207,84,158,0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-#iya3i:hover {
-  transform: scale(1.02) translateY(-4px);
-  box-shadow: 0 30px 80px rgba(207,84,158,0.35);
+/* ===== MAIN LAYOUT ===== */
+.main-wrapper{padding-top:52px;position:relative;z-index:1}
+.hero-layout{
+  display:flex;align-items:flex-start;gap:40px;
+  width:90%;max-width:1220px;margin:0 auto;
+  padding:30px 0 0;
 }
 
-/* Available badge */
-#iicrl { margin-top: 14px; }
-#ir38s {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* ===== LEFT SIDEBAR — FIXED ===== */
+.sidebar{
+  position:sticky;top:52px;align-self:flex-start;
+  flex:0 0 280px;max-width:280px;min-width:220px;
+  height:calc(100vh - 52px);
+  display:flex;flex-direction:column;
+  padding:20px 0;overflow-y:auto;overflow-x:hidden;
 }
-#ikt4f {
-  width: 10px !important;
-  height: 10px !important;
-  color: var(--green);
-  animation: pulse 2s infinite;
-  flex-shrink: 0;
+.sidebar::-webkit-scrollbar{width:2px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(207,84,158,.3)}
+.sidebar-photo{
+  width:100%;border-radius:20px;display:block;
+  box-shadow:0 20px 60px rgba(207,84,158,.2);
+  border:1px solid rgba(207,84,158,.2);
+  transition:transform .4s ease,box-shadow .4s ease;
+  aspect-ratio:3/4;object-fit:cover;
 }
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+.sidebar-photo:hover{transform:scale(1.02) translateY(-4px);box-shadow:0 30px 80px rgba(207,84,158,.35)}
+.sidebar-badge{display:flex;align-items:center;gap:8px;margin-top:14px}
+.sidebar-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--green);flex-shrink:0;
+  animation:dotPulse 2s infinite;
 }
-#iqnz1g {
-  font-size: 0.82rem;
-  color: var(--green);
-  font-weight: 600;
-  letter-spacing: 0.3px;
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.sidebar-badge-text{font-size:.8rem;color:var(--green);font-weight:600}
+.sidebar-name{font-family:'Syne',sans-serif;color:var(--pink);font-size:1.1rem;font-weight:700;margin-top:10px;letter-spacing:-.3px}
+.sidebar-btn{
+  display:flex;justify-content:center;align-items:center;
+  width:100%;height:50px;border-radius:12px;
+  color:#fff;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
+  border:1px solid var(--border);cursor:pointer;
+  font-weight:700;font-size:15px;font-family:'Syne',sans-serif;
+  transition:all .3s ease;position:relative;overflow:hidden;
+  margin-top:14px;text-decoration:none;
 }
-#ijcl9 {
-  color: var(--pink);
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-top: 10px;
-  text-align: left;
-  letter-spacing: -0.3px;
+.sidebar-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  opacity:0;transition:opacity .3s ease;
+}
+.sidebar-btn:hover::after{opacity:1}
+.sidebar-btn span{position:relative;z-index:1}
+.wa-chat-sidebar{
+  margin-top:16px;
+  background:rgba(37,211,102,.08);
+  border:1px solid rgba(37,211,102,.25);
+  border-radius:16px;overflow:hidden;
+  transition:border-color .3s;
+}
+.wa-chat-sidebar:hover{border-color:rgba(37,211,102,.5)}
+.wa-chat-header{
+  background:linear-gradient(135deg,#075e54,#128c7e);
+  padding:10px 14px;display:flex;align-items:center;gap:10px;
+}
+.wa-chat-header-icon{font-size:20px}
+.wa-chat-header-text{flex:1}
+.wa-chat-header-title{font-size:12px;font-weight:700;color:#fff}
+.wa-chat-header-sub{font-size:10px;color:rgba(255,255,255,.7)}
+.wa-powered-tag{font-size:9px;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:1px 6px;flex-shrink:0}
+.wa-chat-body{padding:12px 14px}
+.wa-msg{
+  background:#1f2c34;border-radius:0 10px 10px 10px;
+  padding:8px 12px;font-size:11px;color:#e9edef;
+  line-height:1.5;margin-bottom:10px;position:relative;
+}
+.wa-msg::before{content:'';position:absolute;top:0;left:-6px;border:6px solid transparent;border-right-color:#1f2c34;border-top:0}
+.wa-msg-time{font-size:9px;color:rgba(255,255,255,.35);text-align:right;margin-top:3px}
+.wa-chat-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:9px;border-radius:10px;
+  background:var(--wa-green);color:#fff;
+  font-size:12px;font-weight:700;text-decoration:none;
+  transition:opacity .2s,transform .2s;
+}
+.wa-chat-btn:hover{opacity:.85;transform:scale(1.02)}
+.wa-chat-btn svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+
+/* ===== RIGHT CONTENT ===== */
+.content-area{flex:1;min-width:0;padding:30px 0 80px 30px}
+
+.greeting{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.greeting-icon{font-size:1.4rem;transform:rotateZ(-15deg);display:inline-block}
+.greeting-text{color:#888;font-weight:500;font-size:16px}
+
+.hero-h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4.5vw,52px);
+  font-weight:800;line-height:1.12;
+  letter-spacing:-1px;margin-bottom:20px;
+}
+.hero-h1 .hl{color:var(--green);display:inline-block}
+.hero-h1 .sub{color:var(--text-muted);font-size:.72em;font-weight:400}
+
+.bio-box{
+  color:#aaa;font-size:15px;line-height:1.8;max-width:620px;
+  margin-bottom:30px;padding:20px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);border-radius:var(--radius);
+  border-left:3px solid var(--pink);
+}
+.stats-row{
+  display:flex;gap:0;margin-bottom:30px;
+  border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;background:rgba(255,255,255,.02);
+}
+.stat-cell{flex:1;padding:20px;text-align:center;border-right:1px solid var(--border);transition:background .3s}
+.stat-cell:last-child{border-right:none}
+.stat-cell:hover{background:rgba(207,84,158,.06)}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:var(--green);margin:0 0 4px}
+.stat-label{font-size:13px;color:#777}
+
+.sec-header{padding:40px 0 20px;display:flex;align-items:center;gap:14px}
+.sec-icon{width:36px;height:36px;color:var(--pink);flex-shrink:0}
+.sec-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px}
+
+/* ===== FOREX EDUCATION ===== */
+.forex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:16px}
+.forex-card{
+  background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;
+  padding:20px;transition:all .3s ease;cursor:default;position:relative;overflow:hidden;
+}
+.forex-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--pink),var(--gold),var(--green));
+  transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+}
+.forex-card:hover{border-color:rgba(207,84,158,.35);transform:translateY(-3px);box-shadow:0 12px 30px rgba(207,84,158,.12)}
+.forex-card:hover::before{transform:scaleX(1)}
+.forex-card-icon{font-size:28px;margin-bottom:10px}
+.forex-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
+.forex-card-text{font-size:13px;color:#888;line-height:1.6}
+.forex-card-badge{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.badge-green{background:rgba(40,233,140,.12);color:var(--green);border:1px solid rgba(40,233,140,.25)}
+.badge-pink{background:rgba(207,84,158,.12);color:var(--pink);border:1px solid rgba(207,84,158,.25)}
+.badge-gold{background:rgba(255,179,71,.12);color:var(--gold);border:1px solid rgba(255,179,71,.25)}
+
+/* ===== PRODUCTS ===== */
+.products-col{display:flex;flex-direction:column;gap:16px}
+.prod-card{
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative;
+}
+.prod-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(207,84,158,.08),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.prod-card:hover{border-color:rgba(207,84,158,.4);transform:translateY(-4px);box-shadow:0 16px 40px rgba(207,84,158,.15)}
+.prod-card:hover::before{opacity:1}
+.prod-card img.card-img{width:100%;height:190px;object-fit:cover;display:block}
+.prod-body{padding:16px;display:flex;align-items:flex-start;gap:12px}
+.prod-body-text{flex:1}
+.prod-body-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#fff;margin-bottom:5px}
+.prod-body-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
+.prod-footer{padding:0 16px 16px;display:flex;gap:10px}
+.prod-btn{
+  display:flex;justify-content:center;align-items:center;
+  flex:1;height:44px;border-radius:10px;
+  color:#fff;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
+  border:1px solid var(--border);cursor:pointer;
+  font-weight:600;font-size:14px;text-decoration:none;
+  transition:all .3s ease;position:relative;overflow:hidden;
+}
+.prod-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--pink),var(--pink-dark));opacity:0;transition:opacity .3s}
+.prod-btn:hover::before{opacity:1}
+.prod-btn span{position:relative;z-index:1}
+
+/* ===== SCROLLING TRADE GALLERY (post-proceed) ===== */
+.trade-strip-section{
+  margin-bottom:12px;
+}
+.trade-strip-wrap{
+  position:relative;overflow:hidden;padding:6px 0;
+  border-radius:12px;
+}
+.trade-strip-wrap::before,.trade-strip-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.trade-strip-wrap::before{left:0;background:linear-gradient(90deg,#000,transparent)}
+.trade-strip-wrap::after{right:0;background:linear-gradient(-90deg,#000,transparent)}
+.trade-strip{
+  display:flex;gap:12px;width:max-content;
+  animation:tradeScrollRight 30s linear infinite;
+}
+.trade-strip.reverse{animation:tradeScrollLeft 28s linear infinite}
+.trade-strip:hover{animation-play-state:paused}
+@keyframes tradeScrollRight{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tradeScrollLeft{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.trade-strip-item{
+  flex-shrink:0;width:220px;height:140px;
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+  cursor:pointer;position:relative;background:#111;
+}
+.trade-strip-item:hover{border-color:rgba(40,233,140,.5);transform:scale(1.04);box-shadow:0 8px 30px rgba(40,233,140,.15);z-index:2}
+.trade-strip-item img{width:100%;height:100%;object-fit:cover;display:block}
+.trade-strip-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  height:100%;
+}
+.trade-strip-placeholder-icon{font-size:28px;opacity:.3}
+.trade-strip-placeholder-text{font-size:10px;color:#555}
+.trade-strip-tag{
+  position:absolute;bottom:8px;left:8px;
+  background:rgba(40,233,140,.15);border:1px solid rgba(40,233,140,.3);
+  border-radius:12px;padding:2px 8px;font-size:10px;color:var(--green);font-weight:700;
 }
 
-/* Trade button */
-#iv7p9 {
-  padding: 12px 0 0 0;
-  display: flex;
-  gap: 10px;
+/* ===== WHATSAPP ===== */
+.wa-section{display:flex;gap:20px;flex-wrap:wrap}
+.wa-card{flex:1;min-width:260px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s ease}
+.wa-card:hover{border-color:rgba(207,84,158,.3);background:rgba(207,84,158,.05)}
+.wa-card-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:8px}
+.wa-card-desc{font-size:13px;color:#aaa;line-height:1.7}
+.wa-card-desc b{color:#ddd}
+.wa-live-card{
+  flex:1;min-width:260px;max-width:360px;
+  border-radius:16px;overflow:hidden;
+  border:1px solid rgba(37,211,102,.2);
+  box-shadow:0 8px 40px rgba(37,211,102,.08);
+  transition:box-shadow .3s;
 }
-#i5lku {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  border-radius: 12px;
-  color: #fff;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 15px;
-  font-family: 'Plus Jakarta Sans', Inter, sans-serif;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-#i5lku::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-#i5lku:hover::after { opacity: 1; }
-#i5lku a {
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-  color: #fff;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.wa-live-card:hover{box-shadow:0 12px 50px rgba(37,211,102,.15)}
+.wa-live-header{background:linear-gradient(135deg,#075e54,#128c7e);padding:16px 20px;display:flex;align-items:center;gap:12px}
+.wa-live-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(255,255,255,.2)}
+.wa-live-avatar img{width:100%;height:100%;object-fit:cover}
+.wa-live-info{flex:1}
+.wa-live-name{font-size:14px;font-weight:700;color:#fff}
+.wa-live-status{font-size:11px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:5px}
+.wa-online-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;flex-shrink:0}
+.wa-powered-badge{font-size:9px;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:2px 7px}
+.wa-live-body{background:#0b141a;padding:16px;min-height:120px;display:flex;flex-direction:column;gap:10px}
+.wa-msg-r{background:#1f2c34;border-radius:0 12px 12px 12px;padding:10px 14px;max-width:85%;font-size:12px;color:#e9edef;line-height:1.5;position:relative}
+.wa-msg-r::before{content:'';position:absolute;top:0;left:-6px;border:6px solid transparent;border-right-color:#1f2c34;border-top:0}
+.wa-live-footer{background:#1f2c34;padding:12px 16px;display:flex;gap:10px;align-items:center}
+.wa-live-input{flex:1;background:rgba(255,255,255,.06);border:none;border-radius:20px;padding:8px 14px;color:#e9edef;font-size:12px;outline:none;font-family:'DM Sans',sans-serif}
+.wa-live-input::placeholder{color:rgba(255,255,255,.3)}
+.wa-send-btn{width:36px;height:36px;border-radius:50%;background:var(--wa-green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s}
+.wa-send-btn:hover{transform:scale(1.1)}
+.wa-send-btn svg{width:16px;height:16px;fill:#fff}
+.wa-open-link{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:var(--wa-green);color:#fff;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.wa-open-link:hover{opacity:.85}
 
-/* Hero right content */
-#i7n4f {
-  flex: 1;
-  min-width: 0;
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-bottom: 80px;
-  padding-right: 0;
-}
+/* ===== TRADING APPS ===== */
+.apps-grid{display:flex;gap:16px;flex-wrap:wrap}
+.app-card{flex:1;min-width:160px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:16px;transition:all .3s ease;cursor:pointer}
+.app-card:hover{border-color:rgba(207,84,158,.3);transform:translateY(-4px);background:rgba(207,84,158,.05)}
+.app-card-inner{display:flex;align-items:center;gap:12px}
+.app-card-inner img{width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0}
+.app-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.app-desc{font-size:11px;color:#666}
 
-/* Say Hello */
-#i4fqf { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-#ifl91 { width: 28px !important; height: 28px !important; color: var(--gold); transform: rotateZ(-45deg); }
-#imzmb { color: #888; font-weight: 500; font-size: 16px; }
+/* ===== FUNDED ACCOUNT PLANS ===== */
+.funded-section{
+  margin-top:40px;
+  background:rgba(255,179,71,.03);
+  border:1px solid rgba(255,179,71,.12);
+  border-radius:20px;padding:32px 28px;
+  position:relative;overflow:hidden;
+}
+.funded-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--pink),var(--green),transparent);
+}
+.funded-header{text-align:center;margin-bottom:32px}
+.funded-header h2{
+  font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,38px);
+  font-weight:800;letter-spacing:-.5px;margin-bottom:10px;
+}
+.funded-header h2 span{color:var(--gold)}
+.funded-header p{font-size:14px;color:#888;max-width:520px;margin:0 auto;line-height:1.7}
 
-/* Hero heading */
-#in5pi {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(32px, 5vw, 52px);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
+.plans-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));
+  gap:16px;
 }
-#iuyJJ {
-  color: var(--green);
-  display: inline-block;
+.plan-card{
+  background:#0d0d0d;
+  border:1px solid rgba(255,179,71,.15);
+  border-radius:18px;padding:24px 20px;
+  position:relative;overflow:hidden;
+  transition:all .35s cubic-bezier(.34,1.56,.64,1);
+  display:flex;flex-direction:column;
 }
-#iVvZR {
-  color: var(--text-muted);
-  font-size: 0.75em;
-  font-weight: 400;
+.plan-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--pink));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s ease;
 }
+.plan-card:hover{
+  border-color:rgba(255,179,71,.5);
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(255,179,71,.12);
+}
+.plan-card:hover::after{transform:scaleX(1)}
+.plan-card.popular{
+  border-color:rgba(255,179,71,.4);
+  background:linear-gradient(135deg,#110f09,#1a1408);
+}
+.plan-popular-tag{
+  position:absolute;top:-1px;right:18px;
+  background:linear-gradient(135deg,var(--gold),#e6952e);
+  color:#000;font-size:10px;font-weight:800;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:4px 12px;border-radius:0 0 10px 10px;
+}
+.plan-icon{font-size:32px;margin-bottom:10px}
+.plan-capital{
+  font-family:'Syne',sans-serif;font-size:22px;font-weight:800;
+  color:var(--gold);margin-bottom:4px;
+}
+.plan-name{font-size:13px;color:#888;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.plan-features{flex:1;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.plan-feature{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:#aaa;
+}
+.plan-feature-icon{font-size:13px;flex-shrink:0}
+.plan-price-box{
+  background:rgba(255,179,71,.06);
+  border:1px solid rgba(255,179,71,.15);
+  border-radius:10px;padding:10px 14px;margin-bottom:14px;
+  display:flex;align-items:baseline;gap:4px;
+}
+.plan-price{
+  font-family:'Syne',sans-serif;font-size:28px;font-weight:800;
+  color:#fff;
+}
+.plan-price-label{font-size:11px;color:#777;flex:1;text-align:right;line-height:1.4}
+.plan-order-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:12px 16px;border-radius:12px;
+  background:linear-gradient(135deg,var(--gold),#c27a14);
+  color:#000;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;
+  cursor:pointer;border:none;text-decoration:none;
+  transition:all .2s;letter-spacing:.5px;
+}
+.plan-order-btn:hover{transform:scale(1.04);box-shadow:0 8px 25px rgba(255,179,71,.35)}
+.plan-order-btn svg{width:16px;height:16px;fill:#000;flex-shrink:0}
 
-/* Hero bio */
-#if2c3rs {
-  color: #aaa;
-  font-size: 15px;
-  line-height: 1.8;
-  max-width: 600px;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  border-left: 3px solid var(--pink);
+/* ===== MENTORSHIP SECTION ===== */
+.mentorship-section{
+  padding:clamp(40px,6vw,80px) 0 0;
 }
+.mentorship-head{text-align:center;margin-bottom:32px}
+.mentorship-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(22px,4vw,40px);font-weight:800;letter-spacing:-.5px;margin-bottom:10px;
+}
+.mentorship-title span{color:var(--gold)}
+.mentorship-sub{font-size:clamp(13px,1.8vw,16px);color:#888;max-width:560px;margin:0 auto;line-height:1.6}
 
-/* Stats */
-#ibgbr {
-  display: flex;
-  gap: 0;
-  margin-bottom: 30px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: rgba(255,255,255,0.02);
+.mentorship-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
+.mentor-card-new{
+  background:#0d0d0d;border:1px solid rgba(212,160,23,.15);
+  border-radius:20px;padding:28px;
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  position:relative;overflow:hidden;
 }
-#ijfk9, #ikwnj, #ilnjx {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-  border-right: 1px solid var(--border);
-  transition: background 0.3s;
+.mentor-card-new::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--pink));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
 }
-#ilnjx { border-right: none; }
-#ijfk9:hover, #ikwnj:hover, #ilnjx:hover { background: rgba(207,84,158,0.06); }
-#i144x, #iirl4, #iqo0p {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--green);
-  margin: 0 0 4px;
+.mentor-card-new:hover{
+  border-color:rgba(212,160,23,.4);
+  transform:translateY(-5px);
+  box-shadow:0 20px 50px rgba(212,160,23,.1);
 }
-#ixw34, #ix9kh, #ia9pg { font-size: 13px; color: #777; }
+.mentor-card-new:hover::before{transform:scaleX(1)}
+.mentor-badge-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.mentor-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:dotPulse 2s infinite}
+.mentor-badge-label{
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);
+}
+.mentor-card-new-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.mentor-card-new-desc{font-size:13px;color:#999;line-height:1.75;margin-bottom:18px}
+.mentor-highlights{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.mentor-highlight{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;color:#ccc;
+}
+.mentor-highlight-icon{font-size:14px;flex-shrink:0}
+.mentor-card-new-link{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:30px;
+  background:linear-gradient(135deg,var(--gold),#b8860b);
+  color:#000;font-size:13px;font-weight:700;text-decoration:none;
+  transition:opacity .2s,transform .2s;
+}
+.mentor-card-new-link:hover{opacity:.9;transform:scale(1.04)}
+.mentor-card-new-link.wa{background:linear-gradient(135deg,#25D366,#128c7e);color:#fff}
 
-/* What we have */
-#iuimui { margin-bottom: 20px; }
-#irpqkj { width: 28px !important; height: 28px !important; color: var(--pink); margin-right: 8px; }
-#iigx1s { font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; gap: 8px; }
+/* CTA Bar */
+.cta-bar{
+  margin-top:32px;padding:clamp(24px,4vw,36px);
+  background:linear-gradient(135deg,rgba(212,160,23,.08),rgba(212,160,23,.03));
+  border:1px solid rgba(212,160,23,.2);
+  border-radius:20px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.cta-bar-text h3{font-family:'Syne',sans-serif;font-size:clamp(18px,3vw,26px);font-weight:800;margin-bottom:4px}
+.cta-bar-text p{font-size:13px;color:#888}
+.cta-bar-btns{display:flex;gap:12px;flex-wrap:wrap}
+.cta-btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:30px;
+  background:linear-gradient(135deg,var(--gold),#b8860b);
+  color:#000;font-size:14px;font-weight:700;text-decoration:none;
+  transition:all .2s;white-space:nowrap;
+}
+.cta-btn-primary:hover{transform:scale(1.04);box-shadow:0 8px 25px rgba(212,160,23,.3)}
+.cta-btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:30px;
+  border:1px solid rgba(212,160,23,.4);background:transparent;
+  color:var(--gold);font-size:14px;font-weight:600;text-decoration:none;
+  transition:all .2s;white-space:nowrap;
+}
+.cta-btn-secondary:hover{background:rgba(212,160,23,.1)}
 
-/* ===== PRODUCTS GRID ===== */
-#ihvcag {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* ===== ELITE SCROLLING GALLERY ===== */
+.elite-section{
+  padding:clamp(40px,6vw,80px) 0;
+  background:#000;position:relative;overflow:hidden;
 }
-#il142k, #il142k-6, #il142k-5, #il142k-4 {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-  position: relative;
+.elite-section::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,160,23,.05) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 100%,rgba(212,160,23,.03) 0%,transparent 70%);
+  pointer-events:none;
 }
-#il142k::before, #il142k-6::before, #il142k-5::before, #il142k-4::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(207,84,158,0.08), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-  border-radius: 16px;
+.elite-head{text-align:center;padding:0 clamp(16px,5vw,60px);margin-bottom:clamp(32px,5vw,48px)}
+.elite-title{
+  font-family:'Syne',sans-serif;font-size:clamp(28px,6vw,62px);
+  font-weight:800;letter-spacing:-1px;line-height:1.05;
+  background:linear-gradient(135deg,#f0c040 0%,#d4a017 50%,#8b6914 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:14px;text-transform:uppercase;
 }
-#il142k:hover, #il142k-6:hover, #il142k-5:hover, #il142k-4:hover {
-  border-color: rgba(207,84,158,0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(207,84,158,0.15);
+.elite-desc{font-size:clamp(13px,2vw,16px);color:#888;line-height:1.7;max-width:600px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.2);
+  border-radius:20px;padding:5px 14px;margin-bottom:18px;
 }
-#il142k:hover::before, #il142k-6:hover::before, #il142k-5:hover::before, #il142k-4:hover::before { opacity: 1; }
+.section-label-dot{width:6px;height:6px;border-radius:50%;background:#d4a017;animation:dotPulse 2s infinite}
+.section-label-text{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#d4a017}
 
-#il142k img, #il142k-6 img, #il142k-5 img, #il142k-4 img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px 12px 0 0;
+.strips-wrapper{display:flex;flex-direction:column;gap:0}
+.strip{position:relative;overflow:hidden;padding:6px 0}
+.strip::before,.strip::after{content:'';position:absolute;top:0;bottom:0;width:clamp(40px,8vw,100px);z-index:2;pointer-events:none}
+.strip::before{left:0;background:linear-gradient(90deg,#000,transparent)}
+.strip::after{right:0;background:linear-gradient(-90deg,#000,transparent)}
+.strip-track{display:flex;gap:8px;width:max-content;will-change:transform}
+.strip-1 .strip-track{animation:scrollRight 32s linear infinite}
+.strip-2 .strip-track{animation:scrollLeft 28s linear infinite}
+.strip-3 .strip-track{animation:scrollRight 36s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+@keyframes scrollRight{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollLeft{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.strip-img{
+  flex-shrink:0;width:clamp(150px,20vw,260px);height:clamp(110px,14vw,185px);
+  border-radius:10px;object-fit:cover;display:block;
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .3s ease,border-color .3s,box-shadow .3s;cursor:pointer;
 }
-#igxwwe, #igxwwe-6, #igxwwe-5, #igxwwe-4 {
-  padding: 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-#ikmbue, #ikmbue-6, #ikmbue-5, #ikmbue-4 { flex: 1; }
-#iwklpw, #iwklpw-6 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
-}
-#izjg1o, #izjg1o-6, #izjg1o-5, #izjg1o-4 {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
+.strip:hover .strip-img:hover{transform:scale(1.06);border-color:rgba(212,160,23,.5);box-shadow:0 8px 30px rgba(212,160,23,.2);z-index:3;position:relative}
 
-/* Product buttons */
-#i18c10k, #irgz2lg, #ikhko9r, #ishwi1g { padding: 0 16px 16px; }
-#ixh42bn, #igfy4c1, #ijj2qpn, #id2bpty {
-  display: flex;
-  gap: 10px;
+/* ===== CONTACT ===== */
+.contact-grid{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.contact-card{flex:1;min-width:240px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px}
+.contact-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.contact-row:last-child{border-bottom:none}
+.contact-icon{width:30px;height:30px;color:var(--pink);flex-shrink:0}
+.contact-label{font-size:11px;color:#666;margin-bottom:2px}
+.contact-value{font-size:15px;font-weight:600;color:#fff}
+.partner-imgs{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.partner-img{width:130px;height:130px;object-fit:cover;border-radius:14px;border:2px solid var(--border);transition:all .3s ease}
+.partner-img:hover{border-color:var(--pink);transform:scale(1.04)}
+.hero-quote{
+  font-family:'Syne',sans-serif;font-size:clamp(18px,3vw,26px);font-weight:700;
+  color:#fff;text-align:center;padding:30px 0;letter-spacing:-.5px;position:relative;
 }
-#irvb1im, #iz7cwru, #icj5wqj, #ienza68 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 44px;
-  border-radius: 10px;
-  color: #fff;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-#irvb1im::before, #iz7cwru::before, #icj5wqj::before, #ienza68::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-#irvb1im:hover::before, #iz7cwru:hover::before, #icj5wqj:hover::before, #ienza68:hover::before { opacity: 1; }
-#irvb1im a, #iz7cwru a, #icj5wqj a {
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-/* Coming Soon button — no anchor child, text is direct */
-#ienza68 {
-  position: relative;
-  z-index: 1;
-  font-size: 14px !important;
-  height: 44px !important;
-  min-height: 44px;
-  padding: 0 16px;
-  box-sizing: border-box;
-  line-height: 1;
-}
-#igoabj-5, #igoabj-4 {
-  display: flex;
-  align-items: center;
-}
-#i9f6dd-5, #i9f6dd-4 {
-  width: 24px !important;
-  height: 24px !important;
-  color: var(--pink);
-  transition: transform 0.2s;
-}
-#iwc2wj-5:hover #i9f6dd-5, #iwc2wj-4:hover #i9f6dd-4 { transform: translate(3px, -3px); }
+.hero-quote::before{content:'\201C';color:var(--pink);font-size:1.4em;margin-right:4px}
+.hero-quote::after{content:'\201D';color:var(--pink);font-size:1.4em;margin-left:4px}
 
-/* ===== SECTION HEADERS ===== */
-#iwjagh, #iwjagh-2-3, #iwjagh-2 {
-  padding: 40px 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+/* ===== FOOTER ===== */
+.footer{border-top:1px solid var(--border);padding:40px 0 24px;position:relative;z-index:1}
+.footer-inner{width:90%;max-width:1200px;margin:0 auto}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:32px}
+.footer-brand-col{}
+.footer-brand{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:8px}
+.footer-brand span{color:var(--pink)}
+.footer-brand-desc{font-size:13px;color:#555;max-width:220px;line-height:1.6}
+.footer-map-col{flex:1;min-width:280px;max-width:500px}
+.footer-map-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.5);letter-radius:1px;text-transform:uppercase;margin-bottom:12px}
+.footer-map-frame{
+  width:100%;height:200px;border-radius:14px;overflow:hidden;
+  border:1px solid var(--border);
+  position:relative;
 }
-#ihckgn, #ihckgn-2-3, #ihckgn-2 {
-  width: 40px !important;
-  height: 40px !important;
-  color: var(--pink);
-  flex-shrink: 0;
+.footer-map-frame iframe{width:100%;height:100%;border:0}
+.footer-map-link{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:10px;font-size:12px;color:var(--pink);text-decoration:none;
+  transition:opacity .2s;
 }
-#i28cko, #i28cko-2-3, #i28cko-2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+.footer-map-link:hover{opacity:.8}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:16px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
 }
-#iqw2bg, #iqw2bg-2-3, #iqw2bg-2 {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+.footer-copy{font-size:12px;color:#333}
+.footer-powered{font-size:11px;color:#333;letter-spacing:1px;text-transform:uppercase}
 
-/* ===== WHATSAPP SECTION ===== */
-#i8vzks {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-#ipe8cx, #ipe8cx-5 {
-  flex: 1;
-  min-width: 280px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all 0.3s ease;
-}
-#ipe8cx:hover, #ipe8cx-5:hover {
-  border-color: rgba(207,84,158,0.3);
-  background: rgba(207,84,158,0.05);
-}
-#ijtjqb, #ijtjqb-5 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 8px;
-}
-#i22aef, #i22aef-5 {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 12px;
-  word-break: break-all;
-}
-#i22aef p, #i22aef-5 p { color: #555; margin: 0; }
-#idassi {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-#inoghe {
-  background: rgba(207,84,158,0.15);
-  border: 1px solid rgba(207,84,158,0.3);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 12px;
-  color: var(--pink);
-  font-weight: 600;
-}
-#iyrblk { font-style: italic; }
-#idassi-5 {
-  display: inline-block;
-  background: rgba(40,233,140,0.12);
-  border: 1px solid rgba(40,233,140,0.3);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 12px;
-  color: var(--green);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-#iavxbj, #iavxbj-5 { font-size: 13px; color: #aaa; line-height: 1.7; }
-#iavxbj b, #iavxbj-5 b { color: #ddd; }
+/* ===== LIGHTBOX ===== */
+#lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);align-items:center;justify-content:center}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 80px rgba(0,0,0,.8)}
+#lightbox-close{position:absolute;top:20px;right:24px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:22px;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+#lightbox-close:hover{background:rgba(207,84,158,.4)}
 
-/* ===== TRADING APPS SECTION ===== */
-#im5g67 {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-#i4eqkv, #i4495t, #ile114, #itrhzf {
-  flex: 1;
-  min-width: 180px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-#i4eqkv:hover, #i4495t:hover, #ile114:hover, #itrhzf:hover {
-  border-color: rgba(207,84,158,0.3);
-  transform: translateY(-4px);
-  background: rgba(207,84,158,0.05);
-}
-#ikqawf-5-3, #ikqawf-5-3-3, #ikqawf-5-3-3-3, #ikqawf-5-3-3-2 {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-#iahz9g-5-3 img, #iahz9g-5-3-3 img, #iahz9g-5-3-3-3 img, #iahz9g-5-3-3-2 img {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-#ijtjqb-5-3, #ijtjqb-5-3-3, #ijtjqb-5-3-3-3, #ijtjqb-5-3-3-2 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 2px;
-}
-#i22aef-5-3, #i22aef-5-3-3, #i22aef-5-3-3-3, #i22aef-5-3-3-2 {
-  font-size: 11px;
-  color: #666;
-}
-
-/* ===== CONTACT SECTION ===== */
-#iwjagh-2 { margin-top: 20px; }
-#inh1my {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-#inhz1u {
-  flex: 1;
-  min-width: 260px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-}
-#iwjagh-2-4, #iwjagh-2-4-2-2 {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-}
-#ihckgn-2-4, #ihckgn-2-4-2-2 {
-  width: 32px !important;
-  height: 32px !important;
-  color: var(--pink);
-  flex-shrink: 0;
-}
-#iqw2bg-2-4, #iqw2bg-2-4-3-2 { display: flex; align-items: center; }
-#i28cko-2-4-2-2, #i28cko-2-4-2-2-3-2 { font-size: 11px; color: #666; margin-bottom: 2px; }
-#i28cko-2-4-2-2-2, #i28cko-2-4-2-2-2-2-2 { font-size: 15px; font-weight: 600; color: #fff; }
-
-/* Profile images row */
-#iljtc5p, #iqw3enb, #irvbbwg {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 2px solid var(--border);
-  transition: all 0.3s ease;
-}
-#iljtc5p:hover, #iqw3enb:hover, #irvbbwg:hover {
-  border-color: var(--pink);
-  transform: scale(1.04);
-}
-
-/* ===== BOTTOM SECTION ===== */
-#i7rqjn { border-top: 1px solid var(--border); }
-#i7a1c1 { display: flex; justify-content: center; padding: 20px 0; }
-#iihe2i {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  color: #444;
-  font-weight: 400;
-  text-align: center;
-}
-
-/* Quote */
-#isg288f {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(18px, 3vw, 28px);
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  padding: 30px 0;
-  position: relative;
-  letter-spacing: -0.5px;
-}
-#isg288f::before, #isg288f::after {
-  content: '"';
-  color: var(--pink);
-  font-size: 1.2em;
-}
-#isg288f::after { content: '"'; }
+/* PWA Banner */
+#pwa-banner{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:9999;background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);border:1px solid rgba(207,84,158,.4);border-radius:16px;padding:16px 20px;box-shadow:0 8px 40px rgba(207,84,158,.25),0 0 0 1px rgba(255,255,255,.05);backdrop-filter:blur(20px);min-width:300px;max-width:400px;width:calc(100vw - 40px);transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0}
+#pwa-banner.show{transform:translateX(-50%) translateY(0);opacity:1;display:block!important}
+.banner-inner{display:flex;align-items:center;gap:14px}
+.banner-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--pink-dark));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.banner-text{flex:1}
+.banner-text strong{display:block;font-size:13px;color:#fff;margin-bottom:2px}
+.banner-text span{font-size:11px;color:var(--text-muted)}
+.banner-actions{display:flex;gap:8px;margin-top:12px}
+#pwa-install-btn{flex:1;background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;border:none;border-radius:10px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s}
+#pwa-dismiss-btn{background:rgba(255,255,255,.06);color:var(--text-muted);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13px;cursor:pointer;transition:all .2s}
+.banner-close{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:16px;padding:2px 4px;transition:color .2s}
 
 /* ===== ANIMATIONS ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-in-delay-1 { transition-delay: 0.1s; }
-.fade-in-delay-2 { transition-delay: 0.2s; }
-.fade-in-delay-3 { transition-delay: 0.3s; }
-.fade-in-delay-4 { transition-delay: 0.4s; }
-.slide-in-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.slide-in-left.visible { opacity: 1; transform: translateX(0); }
-.slide-in-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.slide-in-right.visible { opacity: 1; transform: translateX(0); }
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:.1s}
+.fade-in-delay-2{transition-delay:.2s}
+.fade-in-delay-3{transition-delay:.3s}
+.fade-in-delay-4{transition-delay:.4s}
+.slide-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+.slide-in-left.visible{opacity:1;transform:translateX(0)}
+.counter-val{display:inline-block}
+.particle{position:fixed;pointer-events:none;border-radius:50%;animation:float linear infinite;opacity:0;z-index:0}
+@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.3}90%{opacity:.15}100%{transform:translateY(-10vh) scale(1);opacity:0}}
 
-/* Number counter animation */
-.counter-val { display: inline-block; }
-
-/* ===== FLOATING PARTICLES ===== */
-.particle {
-  position: fixed;
-  pointer-events: none;
-  border-radius: 50%;
-  animation: float linear infinite;
-  opacity: 0;
-  z-index: 0;
+/* ===== RESPONSIVE ===== */
+@media(max-width:992px){
+  .hero-layout{flex-wrap:wrap}
+  .sidebar{position:static!important;height:auto!important;max-width:100%;min-width:unset;width:100%;flex:0 0 100%}
+  .content-area{padding-left:0}
+  #top-bar-nav{display:none}
+  #hamburger-btn{display:flex}
+  #mobile-nav{display:block}
 }
-@keyframes float {
-  0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 0.3; }
-  90% { opacity: 0.15; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+@media(max-width:600px){
+  .forex-grid{grid-template-columns:1fr}
+  .wa-section{flex-direction:column}
+  .apps-grid{gap:10px}
+  .app-card{flex:0 0 calc(50% - 5px)}
+  .plans-grid{grid-template-columns:1fr 1fr}
+  .mentorship-cards{grid-template-columns:1fr}
+  .cta-bar{flex-direction:column;text-align:center}
+  .cta-bar-btns{justify-content:center}
+  .footer-top{flex-direction:column}
 }
-
-/* Intro animated background */
-#intro-bg-anim {
-  position: absolute;
-  inset: 0;
-  background: #000;
-  overflow: hidden;
-}
-#intro-bg-anim::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 100% 80% at 20% 20%, rgba(207,84,158,0.25) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 70% at 80% 80%, rgba(40,233,140,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 60% 20%, rgba(255,179,71,0.08) 0%, transparent 50%);
-  animation: introBgShift 6s ease-in-out infinite alternate;
-}
-@keyframes introBgShift {
-  0% { transform: scale(1) translate(0,0); }
-  100% { transform: scale(1.08) translate(-2%, 2%); }
-}
-/* Animated candlestick grid lines */
-#intro-bg-anim::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(207,84,158,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(207,84,158,0.06) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: gridScroll 20s linear infinite;
-}
-@keyframes gridScroll {
-  from { background-position: 0 0; }
-  to { background-position: 60px 60px; }
-}
-
-#intro-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  background: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-#intro-screen.hide {
-  opacity: 0;
-  transform: scale(1.04);
-  pointer-events: none;
-}
-#intro-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-}
-#intro-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(207,84,158,0.18) 0%, transparent 70%),
-    linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
-  pointer-events: none;
-}
-#intro-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 24px;
-}
-#intro-logo {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(28px, 6vw, 56px);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  margin-bottom: 10px;
-  animation: introFadeUp 1s ease both;
-}
-#intro-logo span { color: var(--pink); }
-#intro-tagline {
-  font-size: clamp(13px, 2vw, 17px);
-  color: rgba(255,255,255,0.6);
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-  animation: introFadeUp 1s 0.2s ease both;
-}
-#intro-proceed-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 36px;
-  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  cursor: pointer;
-  box-shadow: 0 8px 40px rgba(207,84,158,0.45), 0 0 0 0 rgba(207,84,158,0.4);
-  animation: introFadeUp 0.6s ease both, btnPulse 2.5s 0.6s ease-in-out infinite;
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-#intro-proceed-btn.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-#intro-proceed-btn:hover {
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 12px 50px rgba(207,84,158,0.6), 0 0 0 0 rgba(207,84,158,0.3);
-}
-#intro-proceed-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-/* Countdown ring */
-#intro-timer {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 24px;
-  animation: introFadeUp 1s 0.3s ease both;
-}
-#intro-timer svg { transform: rotate(-90deg); }
-#intro-timer-track { stroke: rgba(255,255,255,0.1); }
-#intro-timer-fill {
-  stroke: var(--pink);
-  stroke-linecap: round;
-  stroke-dasharray: 163;
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 1s linear;
-}
-#intro-timer-num {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 800;
-  color: #fff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-@keyframes introFadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes btnPulse {
-  0%, 100% { box-shadow: 0 8px 40px rgba(207,84,158,0.45), 0 0 0 0 rgba(207,84,158,0.4); }
-  50% { box-shadow: 0 8px 40px rgba(207,84,158,0.45), 0 0 0 14px rgba(207,84,158,0); }
-}
-
-/* skip link */
-#intro-skip {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  color: rgba(255,255,255,0.35);
-  font-size: 13px;
-  cursor: pointer;
-  border: none;
-  background: none;
-  letter-spacing: 0.5px;
-  transition: color 0.2s;
-  z-index: 3;
-}
-#intro-skip:hover { color: rgba(255,255,255,0.7); }
-
-@media (max-width: 992px) {
-  #ie3jp { flex-wrap: wrap; min-height: unset; }
-  #ipec4 {
-    position: static !important;
-    height: auto !important;
-    max-width: 100%;
-    min-width: unset;
-    width: 100%;
-    flex: 0 0 100%;
-  }
-  #i7n4f { padding-left: 0; padding-top: 30px; }
-  #in5pi { font-size: 35px; }
-  #i4eqkv, #i4495t, #ile114, #itrhzf { flex: 0 0 calc(50% - 8px); }
-  #il142k, #il142k-6, #il142k-5, #il142k-4 { width: 100%; }
-}
-@media (max-width: 768px) {
-  #i8vzks { flex-direction: column; }
-  #im5g67 { gap: 12px; }
-  #i4eqkv, #i4495t, #ile114, #itrhzf { flex: 0 0 calc(50% - 6px); }
-  #in5pi { font-size: 28px; }
-  #i28cko, #i28cko-2, #i28cko-2-3 { font-size: 20px; }
-}
-@media (max-width: 480px) {
-  #in5pi { font-size: 24px; }
-  #i4eqkv, #i4495t, #ile114, #itrhzf { flex: 0 0 100%; }
-  #im5g67 { flex-direction: column; }
-  #inh1my { flex-direction: column; }
-  .gjs-section { padding: 40px 0; }
+@media(max-width:420px){
+  .plans-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
-<body id="ia43">
+<body>
 
-<!-- ===== VIDEO INTRO SCREEN ===== -->
+<!-- ===== INTRO SCREEN — SLIDESHOW ===== -->
 <div id="intro-screen">
-  <!-- Animated gradient background -->
-  <div id="intro-bg-anim">
-    <!-- Animated candlestick chart -->
-    <svg id="intro-chart" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;bottom:0;left:0;width:100%;height:60%;opacity:0.18;">
-      <!-- Chart line -->
-      <polyline points="0,230 60,200 120,210 180,170 240,180 300,140 360,155 420,110 480,125 540,90 600,105 660,70 720,85 780,55 840,70 900,45" fill="none" stroke="#28E98C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <animate attributeName="stroke-dashoffset" from="1500" to="0" dur="3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
-        <animate attributeName="stroke-dasharray" from="0 1500" to="1500 0" dur="3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
-      </polyline>
-      <!-- Candlesticks -->
-      <g opacity="0.7">
-        <rect x="50" y="190" width="10" height="30" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="30" dur="0.5s" begin="0.2s" fill="freeze"/></rect>
-        <rect x="110" y="200" width="10" height="20" fill="#cf549e" rx="1"><animate attributeName="height" from="0" to="20" dur="0.5s" begin="0.4s" fill="freeze"/></rect>
-        <rect x="170" y="160" width="10" height="25" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="25" dur="0.5s" begin="0.6s" fill="freeze"/></rect>
-        <rect x="230" y="170" width="10" height="20" fill="#cf549e" rx="1"><animate attributeName="height" from="0" to="20" dur="0.5s" begin="0.8s" fill="freeze"/></rect>
-        <rect x="290" y="130" width="10" height="22" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="22" dur="0.5s" begin="1.0s" fill="freeze"/></rect>
-        <rect x="350" y="145" width="10" height="18" fill="#cf549e" rx="1"><animate attributeName="height" from="0" to="18" dur="0.5s" begin="1.2s" fill="freeze"/></rect>
-        <rect x="410" y="100" width="10" height="28" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="28" dur="0.5s" begin="1.4s" fill="freeze"/></rect>
-        <rect x="470" y="115" width="10" height="20" fill="#cf549e" rx="1"><animate attributeName="height" from="0" to="20" dur="0.5s" begin="1.6s" fill="freeze"/></rect>
-        <rect x="530" y="82" width="10" height="24" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="24" dur="0.5s" begin="1.8s" fill="freeze"/></rect>
-        <rect x="590" y="96" width="10" height="16" fill="#cf549e" rx="1"><animate attributeName="height" from="0" to="16" dur="0.5s" begin="2.0s" fill="freeze"/></rect>
-        <rect x="650" y="62" width="10" height="22" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="22" dur="0.5s" begin="2.2s" fill="freeze"/></rect>
-        <rect x="710" y="76" width="10" height="18" fill="#cf549e" rx="1"><animate attributeName="height" from="0" to="18" dur="0.5s" begin="2.4s" fill="freeze"/></rect>
-        <rect x="770" y="48" width="10" height="20" fill="#28E98C" rx="1"><animate attributeName="height" from="0" to="20" dur="0.5s" begin="2.6s" fill="freeze"/></rect>
-      </g>
-    </svg>
+  <!-- Photo Slideshow Background -->
+  <div class="intro-slides">
+    <div class="intro-slide"></div>
+    <div class="intro-slide"></div>
+    <div class="intro-slide"></div>
+    <div class="intro-slide"></div>
   </div>
-  <div id="intro-overlay"></div>
+  <div class="intro-overlay-dark"></div>
+  <div class="intro-grid-anim"></div>
+  <div class="intro-glow"></div>
 
   <button id="intro-skip" onclick="proceedToMain()">Skip ›</button>
 
   <div id="intro-content">
-    <div id="intro-logo">Chriss <span>Forex</span> Trading</div>
+    <div id="intro-powered">Powered by Chrissfx1</div>
+    <div id="intro-logo">Chriss <span>FX</span>1</div>
     <div id="intro-tagline">Discipline · Risk Management · Consistency</div>
-    <marquee>
-      <a href="https://brand.wasmer.app/chriss.html" target="_blank"><img src="ChatGPT Image May 3, 2026, 05_22_59 PM.png" width="350px" height="300px" style="margin-right: 5px;" alt=""></a>
-      <!-- <a href="https://brand.wasmer.app/chriss.html" target="_blank"><img src="ChatGPT Image Apr 29, 2026, 03_18_45 PM.png" width="350px" height="300px" style="margin-right: 5px;" alt=""></a> -->
-      <a href="https://www.chrisofficial.com/product/from-50-to-freedom-discipline-trading-success/" target="_blank"><img alt="Trading Mindset" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/dea31fe9-a5b8-4231-a069-f1f42c2b7b0a__screenshot-from-2026-04-27-03-07-29.png" width="300px" height="300px" id="ib6yz8"/></a>
-    </marquee>
 
-    <!-- Countdown ring -->
+    <!-- Slide dots -->
+    <div class="intro-dots" id="intro-dots">
+      <div class="intro-dot active"></div>
+      <div class="intro-dot"></div>
+      <div class="intro-dot"></div>
+      <div class="intro-dot"></div>
+      <div class="intro-dot"></div>
+    </div>
+
+    <!-- Live ticker -->
+    <div class="intro-ticker">
+      <div class="ticker-item"><span>XAUUSD</span><span class="ticker-up">▲ 2,348.50 +0.82%</span></div>
+      <div class="ticker-sep">|</div>
+      <div class="ticker-item"><span>EURUSD</span><span class="ticker-up">▲ 1.0845 +0.24%</span></div>
+      <div class="ticker-sep">|</div>
+      <div class="ticker-item"><span>GBPUSD</span><span class="ticker-down">▼ 1.2610 -0.15%</span></div>
+    </div>
+
     <div id="intro-timer">
-      <svg width="60" height="60" viewBox="0 0 60 60">
+      <svg width="64" height="64" viewBox="0 0 60 60">
         <circle id="intro-timer-track" cx="30" cy="30" r="26" fill="none" stroke-width="3"/>
         <circle id="intro-timer-fill" cx="30" cy="30" r="26" fill="none" stroke-width="3"/>
       </svg>
       <div id="intro-timer-num">5</div>
     </div>
-
     <button id="intro-proceed-btn" onclick="proceedToMain()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
       Proceed to Trading
@@ -1067,558 +906,1003 @@ body::after {
   </div>
 </div>
 
-<!-- PWA Install Banner -->
-<div id="pwa-banner" role="dialog" aria-label="Install App">
-  <button class="banner-close" onclick="dismissBanner()" aria-label="Close">✕</button>
+<!-- ===== TOP BAR ===== -->
+<div id="top-bar">
+  <div id="top-bar-brand">Chriss<span>FX</span>1</div>
+  <nav id="top-bar-nav">
+    <a href="#hero-section">Home</a>
+    <a href="#forex-section">Education</a>
+    <a href="#funded-section">Funded</a>
+    <!-- <a href="#trades-section">Trades</a> -->
+    <a href="#contact-section">Contact</a>
+    <a class="top-bar-wa" href="https://chat.whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Join WhatsApp
+    </a>
+  </nav>
+  <button id="hamburger-btn" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<!-- Mobile Nav Drawer -->
+<div id="mobile-nav">
+  <a href="#hero-section" onclick="closeMobileNav()">🏠 Home</a>
+  <a href="#forex-section" onclick="closeMobileNav()">📊 Education</a>
+  <a href="#funded-section" onclick="closeMobileNav()">💼 Funded Accounts</a>
+  <!-- <a href="#trades-section" onclick="closeMobileNav()">📸 My Trades</a> -->
+  <a href="#contact-section" onclick="closeMobileNav()">📞 Contact</a>
+  <a class="mob-wa" href="https://chat.whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank" onclick="closeMobileNav()">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Join WhatsApp Channel
+  </a>
+</div>
+
+<!-- PWA Banner -->
+<div id="pwa-banner" role="dialog">
+  <button class="banner-close" onclick="dismissBanner()">✕</button>
   <div class="banner-inner">
     <div class="banner-icon">📈</div>
     <div class="banner-text">
-      <strong>Install Chriss Forex Trading</strong>
+      <strong>Install ChrissFX1</strong>
       <span>Add to home screen for quick access</span>
     </div>
   </div>
   <div class="banner-actions">
-    <button id="pwa-install-btn" onclick="installPWA()">
-      ⬇ Install App
-    </button>
+    <button id="pwa-install-btn" onclick="installPWA()">⬇ Install App</button>
     <button id="pwa-dismiss-btn" onclick="dismissBanner()">Not now</button>
   </div>
 </div>
 
-<!-- Update Toast -->
-<div id="update-toast">
-  <span>🔄 New update available!</span>
-  <button onclick="reloadForUpdate()">Update</button>
-</div>
+<!-- ===== MAIN ===== -->
+<div class="main-wrapper">
+  <div id="hero-section" class="hero-layout">
 
-<section id="ipeo" class="gjs-section">
-  <div id="i03r" class="gjs-container">
-    <div data-type-role="flex-row" id="ie3jp" class="gjs-plg-flex-row">
+    <!-- ====== LEFT SIDEBAR (STICKY/FIXED) ====== -->
+    <div class="sidebar slide-in-left">
+      <img class="sidebar-photo" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png" alt="Tuyishime Christophe"/>
+      <div class="sidebar-badge">
+        <div class="sidebar-dot"></div>
+        <span class="sidebar-badge-text">Available for mentorship</span>
+      </div>
+      <div class="sidebar-name">Chriss Forex Trading</div>
+      <a class="sidebar-btn" href="https://discord.gg/qEpubQtnV" target="_blank">
+        <span>🔴 Trade Live Now</span>
+      </a>
+      <!-- WhatsApp Chat Widget -->
+      <div class="wa-chat-sidebar">
+        <div class="wa-chat-header">
+          <div class="wa-chat-header-icon">💬</div>
+          <div class="wa-chat-header-text">
+            <div class="wa-chat-header-title">ChrissFX1 Support</div>
+            <div class="wa-chat-header-sub">Typically replies within minutes</div>
+          </div>
+          <div class="wa-powered-tag">Chrissfx1</div>
+        </div>
+        <div class="wa-chat-body">
+          <div class="wa-msg">
+            Hello! 👋 How can I help you today? Feel free to send me a message!
+            <div class="wa-msg-time">just now</div>
+          </div>
+        </div>
+        <a class="wa-chat-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%27d%20like%20to%20learn%20Forex%20trading." target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Open Chat
+        </a>
+      </div>
+    </div>
 
-      <!-- LEFT: Profile Card -->
-      <div data-type-role="flex-column" id="ipec4" class="gjs-plg-flex-column slide-in-left">
-        <div data-type-role="flex-row" id="iqwx31" class="gjs-plg-flex-row">
-          <div data-type-role="flex-column" id="infr8h" class="gjs-plg-flex-column">
-            <img id="iya3i" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png" alt="Tuyishime Christophe"/>
-            <div data-type-role="flex-row" id="iicrl" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="ir38s" class="gjs-plg-flex-column">
-                <div data-type-icon="" id="ikt4f" class="gjs-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path fill="currentColor" d="M14 2C7.373 2 2 7.373 2 14s5.373 12 12 12s12-5.373 12-12S20.627 2 14 2"></path></svg>
-                </div>
-                <div id="iqnz1g">Available for work</div>
-              </div>
+    <!-- ====== RIGHT CONTENT ====== -->
+    <div class="content-area">
+
+      <!-- Hero -->
+      <div class="greeting fade-in">
+        <span class="greeting-icon">👋</span>
+        <span class="greeting-text">Hello, welcome to ChrissFX1</span>
+      </div>
+      <h1 class="hero-h1 fade-in fade-in-delay-1">
+        I'm Tuyishime Christophe<br/>
+        <span class="hl">Forex Trading<br/>Mentor</span><br/>
+        <span class="sub">Based in Kigali, Rwanda.</span>
+      </h1>
+      <div class="bio-box fade-in fade-in-delay-2">
+        I am a Forex and Gold (XAUUSD) trading mentor focused on helping traders understand the market in a clear and practical way. I teach price action, high-probability setups, and correct risk management so you can trade with confidence and consistency. My goal: move you away from emotional decisions and random entries, toward a strong trading plan you can follow every day. <b style="color:#ddd">Discipline, patience, and proper risk management</b> — not shortcuts.
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row fade-in fade-in-delay-3">
+        <div class="stat-cell">
+          <div class="stat-num"><span class="counter-val" data-target="5">0</span>+</div>
+          <div class="stat-label">Strategies</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num"><span class="counter-val" data-target="5">0</span>+</div>
+          <div class="stat-label">Years Exp.</div>
+        </div>
+        <!-- <div class="stat-cell">
+          <div class="stat-num"><span class="counter-val" data-target="50">0</span>+</div>
+          <div class="stat-label">Students</div>
+        </div> -->
+        <div class="stat-cell">
+          <div class="stat-num"><span class="counter-val" data-target="87">0</span>%</div>
+          <div class="stat-label">Win Rate</div>
+        </div>
+      </div>
+
+      <!-- ===== FOREX EDUCATION ===== -->
+      <div id="forex-section" class="sec-header fade-in">
+        <svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+        <div class="sec-title">Forex Trading Education</div>
+      </div>
+      <div class="forex-grid fade-in fade-in-delay-1">
+        <div class="forex-card">
+          <div class="forex-card-icon">📊</div>
+          <div class="forex-card-title">Price Action Trading</div>
+          <div class="forex-card-text">Read the market using pure price movement. No indicators needed — just candles, structure, and levels that actually matter.</div>
+          <span class="forex-card-badge badge-green">Core Strategy</span>
+        </div>
+        <div class="forex-card">
+          <div class="forex-card-icon">🛡️</div>
+          <div class="forex-card-title">Risk Management</div>
+          <div class="forex-card-text">Never risk more than 1–2% per trade. Learn position sizing, stop-loss placement, and capital preservation as your #1 priority.</div>
+          <span class="forex-card-badge badge-pink">Mandatory</span>
+        </div>
+        <div class="forex-card">
+          <div class="forex-card-icon">🧠</div>
+          <div class="forex-card-title">Trading Psychology</div>
+          <div class="forex-card-text">Master your emotions. Control FOMO, greed, and revenge trading. A disciplined mindset separates profitable traders from the rest.</div>
+          <span class="forex-card-badge badge-gold">Mindset</span>
+        </div>
+        <div class="forex-card">
+          <div class="forex-card-icon">🪙</div>
+          <div class="forex-card-title">Gold (XAUUSD) Trading</div>
+          <div class="forex-card-text">Specialized strategies for the most volatile precious metal market. High-probability setups on Gold with clear entry/exit rules.</div>
+          <span class="forex-card-badge badge-gold">Specialty</span>
+        </div>
+        <div class="forex-card">
+          <div class="forex-card-icon">📐</div>
+          <div class="forex-card-title">Market Structure</div>
+          <div class="forex-card-text">Identify BOS, CHoCH, and smart money concepts to trade with institutional flow. Higher highs, lower lows made simple.</div>
+          <span class="forex-card-badge badge-green">Technical</span>
+        </div>
+        <div class="forex-card">
+          <div class="forex-card-icon">📅</div>
+          <div class="forex-card-title">Trading Plan & Journal</div>
+          <div class="forex-card-text">Build a daily routine. Document every trade. Analyze your data weekly. Turn losing habits into consistent profitable patterns.</div>
+          <span class="forex-card-badge badge-pink">Discipline</span>
+        </div>
+      </div>
+
+      <!-- ===== FUNDED ACCOUNT PLANS ===== -->
+      <div id="funded-section" class="funded-section fade-in" style="margin-top:50px">
+        <div class="funded-header">
+          <div class="section-label" style="margin:0 auto 16px;justify-content:center">
+            <div class="section-label-dot"></div>
+            <span class="section-label-text">Funded Trading Accounts</span>
+          </div>
+          <h2 class="funded-header h2" style="font-family:'Syne',sans-serif;font-size:clamp(22px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin-bottom:10px">
+            Get <span style="color:var(--gold)">Funded Today</span>
+          </h2>
+          <p style="font-size:14px;color:#888;max-width:540px;margin:0 auto;line-height:1.7">
+A funded account allows you to trade using capital provided by a trading firm instead of your own money. You must follow specific risk and trading rules, and when you make profits, they are shared between you and the firm. It’s a way to trade larger capital with limited personal risk.          </p>
+        </div>
+
+        <div class="plans-grid">
+
+          <!-- Starter -->
+          <div class="plan-card fade-in fade-in-delay-1">
+            <div class="plan-icon">🌱</div>
+            <div class="plan-capital">$6,000</div>
+            <div class="plan-name">Starter Funded</div>
+            <div class="plan-features">
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> 15% Perfomance Reward </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 8%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Daily Loss Limit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Perfomance Reward Upto 95%</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div> -->
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> VIP Community Access</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Lifetime Mentorship</div> -->
             </div>
-            <h1 id="ijcl9">Chriss Forex Trading</h1>
-            <div data-type-role="flex-row" id="iatqf" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iv7p9" class="gjs-plg-flex-column">
-                <button type="button" id="i5lku">
-                  <a href="https://discord.gg/qEpubQtnV" target="_blank" id="i4rtw9">Trade Live Now</a>
-                </button>
-              </div>
+            <div class="plan-price-box">
+              <div class="plan-price">$150</div>
+              <!-- <div class="plan-price-label">One-time<br/>evaluation fee</div> -->
             </div>
+            <a class="plan-order-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%20want%20to%20order%20the%20Starter%20Funded%20Account%20-%20%245%2C000%20Plan%20(%24150)." target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order Now
+            </a>
+          </div>
+
+          <!-- Standard -->
+          <div class="plan-card fade-in fade-in-delay-2">
+            <div class="plan-icon">⚡</div>
+            <div class="plan-capital">$15,000</div>
+            <div class="plan-name">Standard Funded</div>
+            <div class="plan-features">
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> 15% Perfomance Reward </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 8%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Daily Loss Limit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Perfomance Reward Upto 95%</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div> -->
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> VIP Community Access</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Lifetime Mentorship</div> -->
+            </div>
+            <div class="plan-price-box">
+              <div class="plan-price">$250</div>
+              <!-- <div class="plan-price-label">One-time<br/>evaluation fee</div> -->
+            </div>
+            <a class="plan-order-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%20want%20to%20order%20the%20Standard%20Funded%20Account%20-%20%2410%2C000%20Plan%20(%24250)." target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order Now
+            </a>
+          </div>
+
+          <!-- Pro — POPULAR -->
+          <div class="plan-card popular fade-in fade-in-delay-3">
+            <div class="plan-popular-tag">Most Popular</div>
+            <div class="plan-icon">🚀</div>
+            <div class="plan-capital">$25,000</div>
+            <div class="plan-name">Pro Funded</div>
+            <div class="plan-features">
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> 15% Perfomance Reward </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 8%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Daily Loss Limit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Perfomance Reward Upto 95%</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div> -->
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> VIP Community Access</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Lifetime Mentorship</div> -->
+            </div>
+            <div class="plan-price-box" style="background:rgba(255,179,71,.1);border-color:rgba(255,179,71,.3)">
+              <div class="plan-price" style="color:var(--gold)">$350</div>
+              <!-- <div class="plan-price-label">One-time<br/>evaluation fee</div> -->
+            </div>
+            <a class="plan-order-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%20want%20to%20order%20the%20Pro%20Funded%20Account%20-%20%2425%2C000%20Plan%20(%24350)." target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order Now
+            </a>
+          </div>
+
+          <!-- Elite -->
+          <div class="plan-card fade-in fade-in-delay-4">
+            <div class="plan-icon">💎</div>
+            <div class="plan-capital">$50,000</div>
+            <div class="plan-name">Elite Funded</div>
+            <div class="plan-features">
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> 15% Perfomance Reward </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 8%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Daily Loss Limit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Perfomance Reward Upto 95%</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div> -->
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> VIP Community Access</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Lifetime Mentorship</div> -->
+
+            </div>
+            <div class="plan-price-box">
+              <div class="plan-price">$450</div>
+              <!-- <div class="plan-price-label">One-time<br/>evaluation fee</div> -->
+            </div>
+            <a class="plan-order-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%20want%20to%20order%20the%20Elite%20Funded%20Account%20-%20%2450%2C000%20Plan%20(%24450)." target="_blank">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order Now
+            </a>
+          </div>
+
+          <!-- Master -->
+          <div class="plan-card fade-in fade-in-delay-1" style="border-color:rgba(207,84,158,.2)">
+            <div class="plan-icon">👑</div>
+            <div class="plan-capital">$100,000</div>
+            <div class="plan-name">Master Funded</div>
+            <div class="plan-features">
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> 15% Perfomance Reward </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 8%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Daily Loss Limit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Perfomance Reward Upto 95%</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div> -->
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> VIP Community Access</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Lifetime Mentorship</div> -->            </div>
+            <div class="plan-price-box" style="background:rgba(207,84,158,.06);border-color:rgba(207,84,158,.2)">
+              <div class="plan-price" style="color:var(--pink)">$750</div>
+              <!-- <div class="plan-price-label">One-time<br/>evaluation fee</div> -->
+            </div>
+            <a class="plan-order-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%20want%20to%20order%20the%20Master%20Funded%20Account%20-%20%24100%2C000%20Plan%20(%24750)." target="_blank" style="background:linear-gradient(135deg,var(--pink),var(--pink-dark))">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order Now
+            </a>
+          </div>
+          <!-- Master -->
+          <div class="plan-card fade-in fade-in-delay-1" style="border-color:rgba(207,84,158,.2)">
+            <div class="plan-icon">👑</div>
+            <div class="plan-capital">$200,000</div>
+            <div class="plan-name">VIP-Master Funded</div>
+            <div class="plan-features">
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> 15% Perfomance Reward </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 8%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Phase 1 Profit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Daily Loss Limit is 5%</div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Perfomance Reward Upto 95%</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div>
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> Max Loss Limit is 10% </div> -->
+              <div class="plan-feature"><span class="plan-feature-icon">✅</span> VIP Community Access</div>
+              <!-- <div class="plan-feature"><span class="plan-feature-icon">✅</span> Lifetime Mentorship</div> -->
+            </div>
+            <div class="plan-price-box" style="background:rgba(207,84,158,.06);border-color:rgba(207,84,158,.2)">
+              <div class="plan-price" style="color:var(--pink)">$1350</div>
+              <!-- <div class="plan-price-label">One-time<br/>evaluation fee</div> -->
+            </div>
+            <a class="plan-order-btn" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!%20I%20want%20to%20order%20the%20Master%20Funded%20Account%20-%20%24200%2C000%20Plan%20(%241350)." target="_blank" style="background:linear-gradient(135deg,var(--pink),var(--pink-dark))">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order Now
+            </a>
+          </div>
+
+        </div><!-- /plans-grid -->
+        <p style="text-align:center;font-size:12px;color:#555;margin-top:16px">All orders are processed via WhatsApp. Tap "Order Now" to send a message directly to ChrissFX1.</p>
+      </div><!-- /funded-section -->
+
+      <!-- Products -->
+      <div class="sec-header fade-in" style="margin-top:20px">
+        <svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89L2 10.69l4.05-4.05c.47-.47 1.15-.68 1.81-.55zM11.17 17s3.74-1.55 5.89-3.7c5.4-5.4 4.5-9.62 4.21-10.57c-.95-.3-5.17-1.19-10.57 4.21C8.55 9.09 7 12.83 7 12.83zm6.48-2.19c-2.29 2.04-5.58 3.44-5.89 3.57L13.31 22l4.05-4.05c.47-.47.68-1.15.55-1.81z"/></svg>
+        <div class="sec-title">What We Have For You</div>
+      </div>
+      <div class="products-col">
+        <div class="prod-card fade-in fade-in-delay-1">
+          <img class="card-img" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/836c89a8-b1bd-48b2-ac07-1283d494028b__screenshot-from-2026-05-02-03-39-16.png" alt="Chriss Forex Trading"/>
+          <div class="prod-body">
+            <div class="prod-body-text">
+              <div class="prod-body-title">Chriss Forex Trading</div>
+              <div class="prod-body-desc">Structured Forex and Gold education focused on strategy, risk management, and mindset. Real skills for real traders.</div>
+            </div>
+          </div>
+          <div class="prod-footer">
+            <a class="prod-btn" href="https://chrissforex.wasmer.app/chriss-forex-trading.html" target="_blank"><span>Take Tour</span></a>
+          </div>
+        </div>
+        <div class="prod-card fade-in fade-in-delay-2">
+          <img class="card-img" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/e86ba699-ca83-4718-a328-7c6d3c301a5b__screenshot-from-2026-05-02-03-46-54.png" alt="Chris Official"/>
+          <div class="prod-body">
+            <div class="prod-body-text">
+              <div class="prod-body-title">Chris Official</div>
+              <div class="prod-body-desc">A Forex trading and mentorship platform teaching discipline, risk management, and smart strategies to help traders become consistent professionals.</div>
+            </div>
+          </div>
+          <div class="prod-footer">
+            <a class="prod-btn" href="https://www.chrisofficial.com/" target="_blank"><span>Take Tour</span></a>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: Hero Content -->
-      <div data-type-role="flex-column" id="i7n4f" class="gjs-plg-flex-column">
-        <div data-type-role="flex-row" id="ipdeh" class="gjs-plg-flex-row">
-          <div data-type-role="flex-column" id="i4fqf" class="gjs-plg-flex-column fade-in">
-            <div data-type-icon="" id="ifl91" class="gjs-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path fill="currentColor" d="M13 3v9.25a.75.75 0 0 1-1.5 0V4.5a1 1 0 1 0-2 0v8.25a.75.75 0 0 1-1.5 0V6.997a1 1 0 1 0-2 0V17.25c0 2.519.982 5.295 1.644 6.89c.487 1.172 1.639 1.857 2.855 1.857h3.595a3.25 3.25 0 0 0 2.914-1.81l.695-1.406q.44-.889 1.028-1.688l2.79-3.785l2.632-1.675A.75.75 0 0 0 24.5 15c0-.487-.214-.889-.549-1.17c-.31-.26-.699-.396-1.066-.466c-.733-.14-1.622-.059-2.417.16c-.722.183-1.423.525-1.968.837V4.5a1 1 0 1 0-2 0v7.75a.75.75 0 0 1-1.5 0V3a1 1 0 1 0-2 0"></path></svg>
+      <!-- WhatsApp Section -->
+      <div class="sec-header fade-in">
+        <svg class="sec-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div class="sec-title">Connect on WhatsApp</div>
+      </div>
+      <div class="wa-section fade-in fade-in-delay-1">
+        <div class="wa-live-card">
+          <div class="wa-live-header">
+            <div class="wa-live-avatar">
+              <img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png" alt="Chriss"/>
             </div>
-            <div id="imzmb">Hello</div>
+            <div class="wa-live-info">
+              <div class="wa-live-name">Chriss Forex Trading</div>
+              <div class="wa-live-status"><div class="wa-online-dot"></div>Online now</div>
+            </div>
+            <div class="wa-powered-badge">Chrissfx1</div>
           </div>
+          <div class="wa-live-body">
+            <div class="wa-msg-r">
+              Hello! 👋 How can I help you today? Feel free to send me a message!
+              <div class="wa-msg-time">just now ✓✓</div>
+            </div>
+          </div>
+          <div class="wa-live-footer">
+            <input class="wa-live-input" placeholder="Type a message..." id="wa-input"/>
+            <button class="wa-send-btn" onclick="sendWA()">
+              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </div>
+          <a class="wa-open-link" href="https://wa.me/250783737393?text=Hello%20ChrissFX1!" target="_blank">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Open in WhatsApp
+          </a>
         </div>
-
-        <h1 id="in5pi" class="fade-in fade-in-delay-1">
-          I'm Tuyishime Christophe
+        <div class="wa-card">
+          <div class="wa-card-title">📢 Free Trading Channel</div>
+          <div style="display:inline-block;background:rgba(40,233,140,.12);border:1px solid rgba(40,233,140,.3);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--green);font-weight:700;margin-bottom:12px">100% Free</div>
+          <div class="wa-card-desc">
+            <b>Join our WhatsApp channel</b> for free daily signals, market analysis, trade setups, and live trade reviews. No experience needed — we guide you step by step.<br/><br/>
+            Get access to: <b>Live signals · Market analysis · Risk management tips · Mindset coaching</b>
+          </div>
           <br/>
-          <span id="iuyJJ" data-gs-mrk-wrap="true">Forex Trading<br/> Mentor<br/></span>
-          <span id="iVvZR" data-gs-mrk-wrap="true">Based in Rwanda.</span>
-        </h1>
-
-        <div id="if2c3rs" class="fade-in fade-in-delay-2">
-          I am a Forex and Gold (XAUUSD) trading mentor focused on helping traders understand the market in a clear and practical way. I teach traders how to read price action, identify high-probability trade setups, and manage risk correctly so they can trade with confidence and consistency. My goal is to move traders away from emotional decisions, random entries, and dependency on signals, and instead help them build a strong trading plan they can follow every day. I believe trading success comes from discipline, patience, and proper risk management, not from shortcuts or gambling. Through structured education, real market examples, and mindset training, I help traders develop the skills needed to think independently, control emotions, and grow steadily in the Forex market over the long term.
+          <a class="prod-btn" href="https://whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank" style="max-width:220px;text-decoration:none">
+            <span style="display:flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Join Free Channel
+            </span>
+          </a>
         </div>
+      </div>
 
-        <div data-type-role="flex-row" id="ibgbr" class="gjs-plg-flex-row fade-in fade-in-delay-3">
-          <div data-type-role="flex-column" id="ijfk9" class="gjs-plg-flex-column">
-            <h1 id="i144x"><span class="counter-val" data-target="5">0</span>+</h1>
-            <div id="ixw34">Strategies</div>
-          </div>
-          <div data-type-role="flex-column" id="ikwnj" class="gjs-plg-flex-column">
-            <h1 id="iirl4"><span class="counter-val" data-target="5">0</span>+</h1>
-            <div id="ix9kh">Years of Experience</div>
-          </div>
-          <div data-type-role="flex-column" id="ilnjx" class="gjs-plg-flex-column">
-            <h1 id="iqo0p"><span class="counter-val" data-target="50">0</span>+</h1>
-            <div id="ia9pg">Happy Students</div>
-          </div>
-        </div>
-
-        <div data-type-role="flex-row" id="iuimui" class="gjs-plg-flex-row fade-in fade-in-delay-4">
-          <div data-type-role="flex-column" id="injq8g" class="gjs-plg-flex-column">
-            <div data-type-icon="" id="irpqkj" class="gjs-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89L2 10.69l4.05-4.05c.47-.47 1.15-.68 1.81-.55zM11.17 17s3.74-1.55 5.89-3.7c5.4-5.4 4.5-9.62 4.21-10.57c-.95-.3-5.17-1.19-10.57 4.21C8.55 9.09 7 12.83 7 12.83zm6.48-2.19c-2.29 2.04-5.58 3.44-5.89 3.57L13.31 22l4.05-4.05c.47-.47.68-1.15.55-1.81zM9 18c0 .83-.34 1.58-.88 2.12C6.94 21.3 2 22 2 22s.7-4.94 1.88-6.12A2.996 2.996 0 0 1 9 18m4-9c0-1.1.9-2 2-2s2 .9 2 2s-.9 2-2 2s-2-.9-2-2"></path></svg>
-            </div>
-            <div id="iigx1s">What we have for you:</div>
+      <!-- Trading Apps -->
+      <div class="sec-header fade-in">
+        <svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+        <div class="sec-title">Trading Apps We Recommend</div>
+      </div>
+      <div class="apps-grid fade-in fade-in-delay-1">
+        <div class="app-card">
+          <div class="app-card-inner">
+            <img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/ef59c480-c557-4226-a36f-94e4217329ca__10001.png" alt="TradingView"/>
+            <div><div class="app-name">TradingView</div><div class="app-desc">Chart Analysis</div></div>
           </div>
         </div>
-
-        <!-- Products -->
-        <div data-type-role="flex-row" id="ihvcag" class="gjs-plg-flex-row">
-
-          <div data-type-role="flex-column" id="il142k" class="gjs-plg-flex-column fade-in fade-in-delay-1">
-            <img id="ik7b86" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/836c89a8-b1bd-48b2-ac07-1283d494028b__screenshot-from-2026-05-02-03-39-16.png" alt="Chriss Forex Trading"/>
-            <div data-type-role="flex-row" id="igxwwe" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="ikmbue" class="gjs-plg-flex-column">
-                <h1 id="iwklpw">Chriss Forex Trading</h1>
-                <div id="izjg1o"><p id="i0jcqc"><b>Chriss Forex Trading</b> helps traders learn real market skills, discipline, and consistency through structured Forex and Gold education, focused on strategy, risk management, and mindset.</p></div>
-              </div>
-            </div>
-            <div data-type-role="flex-row" id="i18c10k">
-              <div data-type-role="flex-column" id="ixh42bn" class="gjs-plg-flex-column">
-                <button type="button" id="irvb1im"><a href="https://chrissforex.wasmer.app/chriss-forex-trading.html" target="_blank">Take Tour</a></button>
-              </div>
-            </div>
-          </div>
-
-          <div data-type-role="flex-column" id="il142k-6" class="gjs-plg-flex-column fade-in fade-in-delay-2">
-            <img id="ik7b86-6" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/e86ba699-ca83-4718-a328-7c6d3c301a5b__screenshot-from-2026-05-02-03-46-54.png" alt="Chris Official"/>
-            <div data-type-role="flex-row" id="igxwwe-6" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="ikmbue-6" class="gjs-plg-flex-column">
-                <h1 id="iwklpw-6">Chris Offical</h1>
-                <div id="izjg1o-6"><b>ChrisOfficial</b> is a Forex trading and mentorship platform that teaches discipline, risk management, and smart trading strategies to help traders become consistent and professional in the market.</div>
-              </div>
-            </div>
-            <div data-type-role="flex-row" id="irgz2lg">
-              <div data-type-role="flex-column" id="igfy4c1" class="gjs-plg-flex-column">
-                <button type="button" id="iz7cwru"><a href="https://www.chrisofficial.com/" target="_blank">Take Tour</a></button>
-              </div>
-            </div>
-          </div>
-
-          <div data-type-role="flex-column" id="il142k-5" class="gjs-plg-flex-column fade-in fade-in-delay-3">
-            <img alt="Trading Mindset" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/dea31fe9-a5b8-4231-a069-f1f42c2b7b0a__screenshot-from-2026-04-27-03-07-29.png" id="ib6yz8"/>
-            <div data-type-role="flex-row" id="igxwwe-5" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="ikmbue-5" class="gjs-plg-flex-column">
-                <div id="izjg1o-5">Transform your trading mindset and build real discipline.</div>
-              </div>
-              <!-- <div data-type-role="flex-column" id="igoabj-5" class="gjs-plg-flex-column">
-                <a id="iwc2wj-5" href="#" class="gjs-link-box">
-                  <div data-type-icon="" id="i9f6dd-5" class="gjs-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path fill="currentColor" d="M1.146 10.854a.5.5 0 0 1 0-.708L9.293 2H4.47a.5.5 0 0 1 0-1h6.03a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V2.707l-8.146 8.147a.5.5 0 0 1-.708 0"></path></svg>
-                  </div>
-                </a>
-              </div> -->
-            </div>
-            <div data-type-role="flex-row" id="ikhko9r">
-              <div data-type-role="flex-column" id="ijj2qpn" class="gjs-plg-flex-column">
-                <button type="button" id="icj5wqj"><a href="https://www.chrisofficial.com/product/from-50-to-freedom-discipline-trading-success/" target="_blank">Take Tour</a></button>
-              </div>
-            </div>
-          </div>
-
-          <div data-type-role="flex-column" id="il142k-4" class="gjs-plg-flex-column fade-in fade-in-delay-4">
-            <img alt="Chriss Forex Trading Book" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/0722aba9-3882-4efe-ab39-7cc75693e86c__chatgpt-image-apr-29-2026-065147-pm.png" id="i5zwdq"/>
-            <div data-type-role="flex-row" id="igxwwe-4" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="ikmbue-4" class="gjs-plg-flex-column">
-                <div id="izjg1o-4"><b>Chriss Forex Trading Book</b> is a professional guide that teaches Forex and Gold trading in a simple and practical way. It focuses on price action, risk management, trading psychology, and disciplined execution to help traders build consistency and avoid emotional mistakes in the market.</div>
-              </div>
-              <!-- <div data-type-role="flex-column" id="igoabj-4" class="gjs-plg-flex-column">
-                <a id="iwc2wj-4" href="#" class="gjs-link-box">
-                  <div data-type-icon="" id="i9f6dd-4" class="gjs-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path fill="currentColor" d="M1.146 10.854a.5.5 0 0 1 0-.708L9.293 2H4.47a.5.5 0 0 1 0-1h6.03a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V2.707l-8.146 8.147a.5.5 0 0 1-.708 0"></path></svg>
-                  </div>
-                </a>
-              </div> -->
-            </div>
-            <div data-type-role="flex-row" id="ishwi1g">
-              <div data-type-role="flex-column" id="id2bpty" class="gjs-plg-flex-column">
-                <button type="button" id="ienza68">Coming Soon</button>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /ihvcag -->
-
-        <!-- WhatsApp Section -->
-        <div data-type-role="flex-row" id="iwjagh" class="gjs-plg-flex-row fade-in">
-          <div data-type-role="flex-column" id="iqw2bg" class="gjs-plg-flex-column">
-            <div data-type-icon="" id="ihckgn" class="gjs-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 13.18v4L12 21l7-3.82v-4L12 17zM12 3L1 9l11 6l9-4.91V17h2V9z"></path></svg>
-            </div>
-            <div id="i28cko">Join my Forex Trading Daily Analysis</div>
+        <div class="app-card">
+          <div class="app-card-inner">
+            <img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/a2ba2121-7d57-46bf-b27b-72eac1d7c13e__10001.jpg" alt="MetaTrader 5"/>
+            <div><div class="app-name">MetaTrader 5</div><div class="app-desc">Execute Trades</div></div>
           </div>
         </div>
-
-        <div data-type-role="flex-row" id="i8vzks" class="gjs-plg-flex-row">
-          <div data-type-role="flex-column" id="ipe8cx" class="gjs-plg-flex-column fade-in fade-in-delay-1">
-            <div data-type-role="flex-row" id="ikqawf" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="imjppg" class="gjs-plg-flex-column">
-                <h1 id="ijtjqb">WhatsApp Group</h1>
-                <!-- <div id="i22aef"><p>https://chat.whatsapp.com/</p><div>HHSDQtX8bPXHfn724Z0jqP</div></div> -->
-              </div>
-            </div>
-            <div id="idassi"><div id="inoghe"><em id="iyrblk"><span id="iv2iqz">Paid</span></em></div></div>
-            <div id="iw61t1" class="gjs-divider"></div>
-            <span id="iavxbj">The <b>WhatsApp VIP Group is a paid, premium community</b> for traders who are serious about improving their trading performance. Members receive <b>exclusive content</b>, including detailed trade setups, in-depth market analysis, structured guidance, and continuous mentorship support. In the VIP group, I focus more on <b>risk management, trade execution, psychology, and consistency</b>, while also providing closer interaction and personal guidance. This group is for disciplined traders who are ready to invest in their education and follow clear trading rules.</span>
-            <div data-type-role="flex-row" id="ikhko9r">
-              <div data-type-role="flex-column" id="ijj2qpn" class="gjs-plg-flex-column">
-                <button type="button" id="icj5wqj"><a href="https://l.instagram.com/?u=https%3A%2F%2Fapi.whatsapp.com%2Fsend%2F%3Fphone%3D%252B250783737393%26type%3Dphone_number%26app_absent%3D0%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnXUoKt2Y2nCYCw68TAZ9bNedKy2QKOPObmbFDLMecFt7FwbcbRpRuy9t3FBM_aem_BCH1ydiD-ABg34Zke9r3iw&e=AUBOW1HpmYxuEvq4RAQRu4u6hqt9CQzC0YW5Y3YBtoUIJibSIvHVE_Z4ab10N4y-t8aGD8LJuW37bqdHxq0IaES20xlhMdZ-96iVAntipg" target="_blank">Join Now</a></button>
-              </div>
-            </div>
-          </div>
-
-          <div data-type-role="flex-column" id="ipe8cx-5" class="gjs-plg-flex-column fade-in fade-in-delay-2">
-            <div data-type-role="flex-row" id="ikqawf-5" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="imjppg-5" class="gjs-plg-flex-column">
-                <h1 id="ijtjqb-5">WhatsApp Channel</h1>
-                <!-- <div id="i22aef-5"><p id="iy1py3">https://whatsapp.com/channel/</p><div>0029Vb88iT59RZAdzsjkm00j</div></div> -->
-              </div>
-            </div>
-            <div id="iw61t1-5" class="gjs-divider"></div>
-            <span id="iavxbj-5">My <b>WhatsApp Channel is completely free</b> and open to everyone who wants to learn and stay informed about the Forex market. In this channel, I share <b>market insights, trade ideas, analysis updates, educational tips, and important announcements</b>. It is designed to help traders improve their market understanding, learn how professional traders think, and stay connected without any payment. The content is educational and informative, making it suitable for beginners and intermediate traders who want to grow their knowledge step by step.</span>
-            <div id="idassi-5">100% Free</div>
-            <button type="button" id="icj5wqj"><a href="https://chat.whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank">Join Now</a></button>
+        <div class="app-card">
+          <div class="app-card-inner">
+            <img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/3e89bc07-af53-4df7-b865-09b81e990cc2__10001.png" alt="HFX"/>
+            <div><div class="app-name">HFX</div><div class="app-desc">Award-Winning Broker</div></div>
           </div>
         </div>
-
-        <!-- Trading Apps -->
-        <div data-type-role="flex-row" id="iwjagh-2-3" class="gjs-plg-flex-row fade-in">
-          <div data-type-role="flex-column" id="iqw2bg-2-3" class="gjs-plg-flex-column">
-            <div data-type-icon="" id="ihckgn-2-3" class="gjs-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M15 11.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 11.5V8.947A3.5 3.5 0 0 0 3.5 10H7v.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V10h3.5c.98 0 1.865-.404 2.5-1.053zM9.25 1c.966 0 1.75.784 1.75 1.75V4h1.5a2.5 2.5 0 0 1 0 5H9v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V9H3.5a2.5 2.5 0 0 1 0-5H5V2.75C5 1.784 5.784 1 6.75 1zm-2.5 1a.75.75 0 0 0-.75.75V4h4V2.75A.75.75 0 0 0 9.25 2z"></path></svg>
-            </div>
-            <div id="i28cko-2-3">Trading Apps</div>
+        <div class="app-card">
+          <div class="app-card-inner">
+            <img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2a4ec179-db07-4ce6-a83b-c7ccfd1faddc__10001.png" alt="FTMO"/>
+            <div><div class="app-name">FTMO</div><div class="app-desc">Prop Trading Firm</div></div>
           </div>
         </div>
+      </div>
 
-        <div data-type-role="flex-row" id="im5g67" class="gjs-plg-flex-row">
-          <div data-type-role="flex-column" id="i4eqkv" class="gjs-plg-flex-column fade-in fade-in-delay-1">
-            <div data-type-role="flex-row" id="ikqawf-5-3" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iahz9g-5-3" class="gjs-plg-flex-column"><img alt="TradingView" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/ef59c480-c557-4226-a36f-94e4217329ca__10001.png" id="imp1f9"/></div>
-              <div data-type-role="flex-column" id="imjppg-5-3" class="gjs-plg-flex-column"><h1 id="ijtjqb-5-3">Trading View</h1><div id="i22aef-5-3">Analysis of charts</div></div>
-            </div>
-          </div>
-          <div data-type-role="flex-column" id="i4495t" class="gjs-plg-flex-column fade-in fade-in-delay-2">
-            <div data-type-role="flex-row" id="ikqawf-5-3-3" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iahz9g-5-3-3" class="gjs-plg-flex-column"><img alt="MetaTrader 5" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/a2ba2121-7d57-46bf-b27b-72eac1d7c13e__10001.jpg" id="ipnmvc"/></div>
-              <div data-type-role="flex-column" id="imjppg-5-3-3" class="gjs-plg-flex-column"><h1 id="ijtjqb-5-3-3">MetaTrader 5</h1><div id="i22aef-5-3-3">Placing and Execute Trades</div></div>
-            </div>
-          </div>
-          <div data-type-role="flex-column" id="ile114" class="gjs-plg-flex-column fade-in fade-in-delay-3">
-            <div data-type-role="flex-row" id="ikqawf-5-3-3-3" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iahz9g-5-3-3-3" class="gjs-plg-flex-column"><img alt="HFX" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/3e89bc07-af53-4df7-b865-09b81e990cc2__10001.png" id="if7nly"/></div>
-              <div data-type-role="flex-column" id="imjppg-5-3-3-3" class="gjs-plg-flex-column"><h1 id="ijtjqb-5-3-3-3">HFX</h1><div id="i22aef-5-3-3-3">Award Winning Forex and Commodities Broker</div></div>
-            </div>
-          </div>
-          <div data-type-role="flex-column" id="itrhzf" class="gjs-plg-flex-column fade-in fade-in-delay-4">
-            <div data-type-role="flex-row" id="ikqawf-5-3-3-2" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iahz9g-5-3-3-2" class="gjs-plg-flex-column"><img alt="FTMO" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2a4ec179-db07-4ce6-a83b-c7ccfd1faddc__10001.png" id="ihvgyf"/></div>
-              <div data-type-role="flex-column" id="imjppg-5-3-3-2" class="gjs-plg-flex-column"><h1 id="ijtjqb-5-3-3-2">FTMO</h1><div id="i22aef-5-3-3-2">Trade According to our Trading Objectives</div></div>
-            </div>
-          </div>
-        </div>
+      <!-- ===== TRADE GALLERY — SCROLLING STRIPS ===== -->
+      <!-- <div id="trades-section" class="sec-header fade-in">
+        <svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+        <div class="sec-title"></div>
+        <span class="forex-card-badge badge-green" style="font-size:12px;margin-left:auto">Live Results</span>
+      </div>
+      <p style="font-size:13px;color:#666;margin-bottom:18px">Real trades executed by ChrissFX1. Transparency is everything — every screenshot is a real position.</p>
 
-        <!-- Contact -->
-        <div data-type-role="flex-row" id="iwjagh-2" class="gjs-plg-flex-row fade-in">
-          <div data-type-role="flex-column" id="iqw2bg-2" class="gjs-plg-flex-column">
-            <div data-type-icon="" id="ihckgn-2" class="gjs-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4.5A2.5 2.5 0 0 1 6.5 2h11A2.5 2.5 0 0 1 20 4.5v14.25a.75.75 0 0 1-.75.75H5.5a1 1 0 0 0 1 1h12.75a.75.75 0 0 1 0 1.5H6.5A2.5 2.5 0 0 1 4 19.5zM14 8a2 2 0 1 0-4 0a2 2 0 0 0 4 0m1.5 4.5A1.5 1.5 0 0 0 14 11h-4a1.5 1.5 0 0 0-1.5 1.5c0 1.25 1 2.5 3.5 2.5s3.5-1.255 3.5-2.5"></path></svg>
-            </div>
-            <div id="i28cko-2">Let Me Help You</div>
-          </div>
-        </div>
+      <!-- Scrolling Strip Row 1 -->
+      <!-- <div class="elite-section">
+        <div class="strips-wrapper">
+        <div class="strip strip-1">
+      <div class="strip-track">
+        <img class="strip-img" src="https://unsplash.com/photos/gold-bitcoin-falling-apart-a-graph-is-crashing-it-concept-of-a-cryptocurrency-market-crisis-a-black-background-a-side-view-3d-rendering-mock-up-RIQa-DDmC70" alt="Trading" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-pile-of-gold-and-silver-bitcoins-kM6QNrgo0YE" alt="Elite" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-person-holding-a-coin-in-front-of-a-computer-sM4r-swmcoY" alt="Network" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/three-bitcoins-sitting-on-top-of-a-table-ZAIbez5LTrg" alt="Success" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-3d-render-of-a-microscopic-closeup-concept-of-small-cubes-in-a-random-layout-that-build-up-to-form-the-bitcoin-symbol-illuminated-on-a-generic-smartphone-VTKtPMDouBw" alt="Money" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/person-using-black-and-gray-laptop-computer-GnWfl_nnZro" alt="Forex" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/silver-and-black-round-emblem-NHRM1u4GD_A" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-computer-screen-displaying-a-stock-market-chart-RDXcFY5g5O4" alt="Lifestyle" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-pile-of-gold-bitcoins-sitting-on-top-of-each-other-fsSGgTBoX9Y" alt="Trading" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-cell-phone-displaying-a-stock-chart-on-the-screen-LWD60a5a15I" alt="Elite" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/black-samsung-android-smartphone-with-white-background-699H4PEEEe0" alt="Network" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/black-android-smartphone-on-brown-wooden-table-XihAgOYNHn4" alt="Success" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/red-and-blue-light-streaks-fiXLQXAhCfk" alt="Money" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/black-and-silver-laptop-computer-ztYmIQecyH4" alt="Forex" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/horizontal-no-people-shot-of-stock-and-currency-trading-agents-workspace-with-desktop-computers-and-various-monitors-in-modern-office-interior-Ur1VdGufVns" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://unsplash.com/photos/a-pile-of-twenty-dollar-bills-sitting-on-top-of-each-other-knVXUA2yauo" alt="Lifestyle" onclick="openLightbox(this)"/>
+      </div>
+      <div class="strip strip-2">
+      <div class="strip-track">
+        <img class="strip-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=500&q=80" alt="Mentor" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Community" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&q=80" alt="Strategy" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=500&q=80" alt="Gold" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&q=80" alt="Team" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=500&q=80" alt="Travel" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&q=80" alt="Wealth" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&q=80" alt="Finance" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=500&q=80" alt="Mentor" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Community" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&q=80" alt="Strategy" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=500&q=80" alt="Gold" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&q=80" alt="Team" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=500&q=80" alt="Travel" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&q=80" alt="Wealth" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&q=80" alt="Finance" onclick="openLightbox(this)"/>
+      </div>
+      <div class="strip strip-3">
+      <div class="strip-track">
+        <img class="strip-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80" alt="Building" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=80" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=80" alt="Phone" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1494199505258-5f95387f933c?w=500&q=80" alt="Rwanda" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80" alt="Work" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Luxury" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&q=80" alt="City" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" alt="Global" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80" alt="Building" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=80" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=80" alt="Phone" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1494199505258-5f95387f933c?w=500&q=80" alt="Rwanda" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80" alt="Work" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Luxury" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&q=80" alt="City" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" alt="Global" onclick="openLightbox(this)"/>
+      </div>
+    </div>
+      </div> -->
+    </div>
+    </div>
+      </div>
 
-        <div data-type-role="flex-row" id="inh1my" class="gjs-plg-flex-row">
-          <div data-type-role="flex-column" id="inhz1u" class="gjs-plg-flex-column fade-in fade-in-delay-1">
-            <div data-type-role="flex-row" id="iwjagh-2-4" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iqw2bg-2-4" class="gjs-plg-flex-column">
-                <div data-type-icon="" id="ihckgn-2-4" class="gjs-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4.5A2.5 2.5 0 0 1 6.5 2h11A2.5 2.5 0 0 1 20 4.5v14.25a.75.75 0 0 1-.75.75H5.5a1 1 0 0 0 1 1h12.75a.75.75 0 0 1 0 1.5H6.5A2.5 2.5 0 0 1 4 19.5zM14 8a2 2 0 1 0-4 0a2 2 0 0 0 4 0m1.5 4.5A1.5 1.5 0 0 0 14 11h-4a1.5 1.5 0 0 0-1.5 1.5c0 1.25 1 2.5 3.5 2.5s3.5-1.255 3.5-2.5"></path></svg>
-                </div>
-              </div>
-              <div data-type-role="flex-column" id="iqw2bg-2-4-2" class="gjs-plg-flex-column">
-                <div id="i28cko-2-4-2-2">Contact No</div>
-                <div id="i28cko-2-4-2-2-2">+250 783 737 393</div>
-              </div>
-            </div>
-            <div data-type-role="flex-row" id="iwjagh-2-4-2-2" class="gjs-plg-flex-row">
-              <div data-type-role="flex-column" id="iqw2bg-2-4-3-2" class="gjs-plg-flex-column">
-                <div data-type-icon="" id="ihckgn-2-4-2-2" class="gjs-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4.5A2.5 2.5 0 0 1 6.5 2h11A2.5 2.5 0 0 1 20 4.5v14.25a.75.75 0 0 1-.75.75H5.5a1 1 0 0 0 1 1h12.75a.75.75 0 0 1 0 1.5H6.5A2.5 2.5 0 0 1 4 19.5zM14 8a2 2 0 1 0-4 0a2 2 0 0 0 4 0m1.5 4.5A1.5 1.5 0 0 0 14 11h-4a1.5 1.5 0 0 0-1.5 1.5c0 1.25 1 2.5 3.5 2.5s3.5-1.255 3.5-2.5"></path></svg>
-                </div>
-              </div>
-              <div data-type-role="flex-column" id="iqw2bg-2-4-2-2-2" class="gjs-plg-flex-column">
-                <div id="i28cko-2-4-2-2-3-2">Address</div>
-                <div id="i28cko-2-4-2-2-2-2-2">Kigali, Makuza</div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;" class="fade-in fade-in-delay-2">
-            <a href="https://www.alicecop.com/" target="_blank"><img alt="Profile" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/47e1b645-92e1-43e8-ba17-f60d7c760129__10001.png" id="iljtc5p"/></a>
-            <a href="https://www.tsindamedia.com/" target="_blank"><img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/fc737ace-30e4-4d52-b13c-511c50ea6135__10001.png" id="iqw3enb"/></a>
-            <a href="https://www.upskillshub.com/" target="_blank"><img src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/00ac9a83-7fa7-447f-acbf-bc7b8fa56dfa__10001-1.jpg" id="irvbbwg"/></a>
-          </div>
-        </div>
+    </div><!-- /content-area -->
+  </div><!-- /hero-layout -->
+</div><!-- /main-wrapper -->
 
-        <h1 id="isg288f" class="fade-in">Consistency Builds Success in Trading.</h1>
+<!-- ===== ELITE NETWORK — SCROLLING GALLERY (outside sidebar layout) ===== -->
+<div class="elite-section">
+  <!-- <div class="elite-head">
+    <div class="section-label" style="margin:0 auto 18px;justify-content:center">
+      <div class="section-label-dot"></div>
+      <span class="section-label-text">Elite Community</span>
+    </div>
+    <h2 class="elite-title">Access The Elite Network</h2>
+    <p class="elite-desc">Trading doesn't have to be a lonely journey. Surround yourself with high-performance traders, market thinkers, and a community that pushes execution to the next level.</p>
+  </div> -->
 
-      </div><!-- /i7n4f -->
-    </div><!-- /ie3jp -->
-  </div><!-- /i03r -->
-</section>
-
-<section id="i7rqjn" class="gjs-section">
-  <div id="i7a1c1" class="gjs-container">
-    <h1 id="iihe2i">© 2026 Chriss Forex Trading — Kigali, Rwanda</h1>
+  <div class="strips-wrapper">
+    <div class="strip strip-1">
+      <div class="strip-track">
+        <img class="strip-img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&q=80" alt="Trading" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=500&q=80" alt="Elite" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&q=80" alt="Network" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&q=80" alt="Success" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1560472355-536de3962603?w=500&q=80" alt="Money" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=500&q=80" alt="Forex" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=500&q=80" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=500&q=80" alt="Lifestyle" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&q=80" alt="Trading" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=500&q=80" alt="Elite" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&q=80" alt="Network" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&q=80" alt="Success" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1560472355-536de3962603?w=500&q=80" alt="Money" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=500&q=80" alt="Forex" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=500&q=80" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=500&q=80" alt="Lifestyle" onclick="openLightbox(this)"/>
+      </div>
+    </div>
+    <div class="strip strip-2">
+      <div class="strip-track">
+        <img class="strip-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=500&q=80" alt="Mentor" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Community" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&q=80" alt="Strategy" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=500&q=80" alt="Gold" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&q=80" alt="Team" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=500&q=80" alt="Travel" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&q=80" alt="Wealth" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&q=80" alt="Finance" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=500&q=80" alt="Mentor" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Community" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&q=80" alt="Strategy" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=500&q=80" alt="Gold" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&q=80" alt="Team" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=500&q=80" alt="Travel" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&q=80" alt="Wealth" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&q=80" alt="Finance" onclick="openLightbox(this)"/>
+      </div>
+    </div>
+    <div class="strip strip-3">
+      <div class="strip-track">
+        <img class="strip-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80" alt="Building" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=80" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=80" alt="Phone" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1494199505258-5f95387f933c?w=500&q=80" alt="Rwanda" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80" alt="Work" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Luxury" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&q=80" alt="City" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" alt="Global" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80" alt="Building" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=80" alt="Charts" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=80" alt="Phone" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1494199505258-5f95387f933c?w=500&q=80" alt="Rwanda" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80" alt="Work" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Luxury" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&q=80" alt="City" onclick="openLightbox(this)"/>
+        <img class="strip-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" alt="Global" onclick="openLightbox(this)"/>
+      </div>
+    </div>
   </div>
-</section>
+</div>
+
+<!-- ===== MENTORSHIP SECTION ===== -->
+<div class="mentorship-section" style="padding:clamp(40px,6vw,80px) clamp(16px,5vw,60px)">
+  <div class="mentorship-head">
+    <div class="section-label" style="margin:0 auto 18px;justify-content:center">
+      <div class="section-label-dot"></div>
+      <span class="section-label-text">Mentorship Programs</span>
+    </div>
+    <h2 class="mentorship-title">Learn From The <span>Best Mentor</span></h2>
+    <p class="mentorship-sub">A structured mentorship program built to take you from zero to consistent profitability — step by step, day by day.</p>
+  </div>
+
+  <div class="mentorship-cards">
+    <!-- ChrissFX1 Full Mentorship -->
+    <div class="mentor-card-new">
+      <div class="mentor-badge-row">
+        <div class="mentor-badge-dot"></div>
+        <span class="mentor-badge-label">🇷🇼 Rwanda-Based · Live Sessions</span>
+      </div>
+      <div class="mentor-card-new-title">ChrissFX1 Full Mentorship</div>
+      <div class="mentor-card-new-desc">
+        A comprehensive one-on-one and group mentorship program designed for traders who are serious about building a sustainable trading career. We don't teach shortcuts — we teach systems, discipline, and the mental framework that keeps you profitable long-term.
+      </div>
+      <div class="mentor-highlights">
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📊</span> Price Action &amp; Smart Money Concepts</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🛡️</span> Risk Management &amp; Position Sizing</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🧠</span> Trading Psychology &amp; Mindset Coaching</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🪙</span> Gold (XAUUSD) Specialized Strategies</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📅</span> Daily Live Market Analysis</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📸</span> Real Trade Review Sessions</div>
+      </div>
+      <a class="mentor-card-new-link" href="https://chat.whatsapp.com/HHSDQtX8bPXHfn724Z0jqP" target="_blank">
+        🚀 Start Mentorship
+      </a>
+    </div>
+
+    <!-- Free Community -->
+    <div class="mentor-card-new" style="border-color:rgba(37,211,102,.2)">
+      <div class="mentor-badge-row">
+        <div class="mentor-badge-dot" style="background:var(--wa-green)"></div>
+        <span class="mentor-badge-label" style="color:var(--wa-green)">100% FREE · No Experience Needed</span>
+      </div>
+      <div class="mentor-card-new-title">Free WhatsApp Community</div>
+      <div class="mentor-card-new-desc">
+        Not ready for full mentorship yet? Start here. Our free WhatsApp channel gives you daily market analysis, live trade signals, educational content, and direct access to Chriss and other serious traders. Build your foundation before investing in mentorship.
+      </div>
+      <div class="mentor-highlights">
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📡</span> Daily Live Forex &amp; Gold Signals</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🔍</span> Market Analysis Every Morning</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">💬</span> Community Q&amp;A with Chriss</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📚</span> Free Educational Resources</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🏆</span> Monthly Trade Competitions</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">✅</span> Beginner-Friendly Environment</div>
+      </div>
+      <a class="mentor-card-new-link wa" href="https://chat.whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Join Free Channel
+      </a>
+    </div>
+
+    <!-- Discord Live -->
+    <div class="mentor-card-new" style="border-color:rgba(114,137,218,.2)">
+      <div class="mentor-badge-row">
+        <div class="mentor-badge-dot" style="background:#7289da"></div>
+        <span class="mentor-badge-label" style="color:#7289da">LIVE TRADING · Discord</span>
+      </div>
+      <div class="mentor-card-new-title">Live Trading Sessions</div>
+      <div class="mentor-card-new-desc">
+        Watch Chriss trade in real-time on Discord. Live chart analysis, entry and exit commentary, and post-trade review. The fastest way to absorb how a professional trader thinks and executes — you watch, you learn, you apply.
+      </div>
+      <div class="mentor-highlights">
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🔴</span> Live Trades Streamed in Real-Time</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🎙️</span> Audio Commentary &amp; Explanation</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📐</span> Chart Markups &amp; Structure Analysis</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">💬</span> Live Q&amp;A During Sessions</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🕐</span> Multiple Sessions Per Week</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📁</span> Session Recordings Available</div>
+      </div>
+      <a class="mentor-card-new-link" href="https://discord.gg/qEpubQtnV" target="_blank" style="background:linear-gradient(135deg,#7289da,#5865f2)">
+        🎮 Join Discord
+      </a>
+    </div>
+    <div class="mentor-card-new" style="border-color:rgba(114,137,218,.2)">
+      <div class="mentor-badge-row">
+        <div class="mentor-badge-dot" style="background:#7289da"></div>
+        <span class="mentor-badge-label" style="color:#7289da">Book</span>
+      </div>
+      <div class="mentor-card-new-title">From $50 To Freedom</div>
+      <div class="mentor-card-new-desc">
+        Learn disciplined trading step by step with From $50 to Freedom. This book breaks down mindset, risk control, and decision-making using real trading experiences. You don’t just read theory — you understand how a trader thinks, plans, and stays consistent. Read, practice, and apply with confidence.
+      </div>
+      <div class="mentor-highlights">
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📘</span> Trading psychology explained simply</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📉</span> Risk management for small accounts</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">🧠</span> Discipline over emotions</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📊</span> Real trading lessons, not hype</div>
+        <!-- <div class="mentor-highlight"><span class="mentor-highlight-icon">🕐</span> Multiple Sessions Per Week</div>
+        <div class="mentor-highlight"><span class="mentor-highlight-icon">📁</span> Session Recordings Available</div> -->
+      </div>
+      <a class="mentor-card-new-link" href="https://www.chrisofficial.com/product/from-50-to-freedom-discipline-trading-success/ target="_blank" style="background:linear-gradient(135deg,#7289da,#5865f2)">
+         Get Book
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA Bar -->
+  <div class="cta-bar" style="max-width:1200px;margin:32px auto 0">
+    <div class="cta-bar-text">
+      <h3>Ready to Start Your <span style="color:var(--gold)">Trading Journey?</span></h3>
+      <p>Join thousands of traders already learning. Your consistency starts today.</p>
+    </div>
+    <div class="cta-bar-btns">
+      <a class="cta-btn-primary" href="https://wa.me/250783737393?text=Hello!%20I%20want%20to%20join%20the%20mentorship." target="_blank">
+        📲 Message on WhatsApp
+      </a>
+      <a class="cta-btn-secondary" href="https://discord.gg/qEpubQtnV" target="_blank">
+        🎮 Join Discord
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div style="width:90%;max-width:1220px;margin:0 auto;padding:0 0 80px">
+  <div id="contact-section" class="sec-header fade-in">
+    <svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2h11A2.5 2.5 0 0 1 20 4.5v14.25a.75.75 0 0 1-.75.75H5.5a1 1 0 0 0 1 1h12.75a.75.75 0 0 1 0 1.5H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+    <div class="sec-title">Let Me Help You</div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card fade-in fade-in-delay-1">
+      <div class="contact-row">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <div><div class="contact-label">Contact No</div><div class="contact-value">+250 783 737 393</div></div>
+      </div>
+      <div class="contact-row">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div><div class="contact-label">Address</div><div class="contact-value">Kigali, Makuza, Rwanda</div></div>
+      </div>
+      <div class="contact-row" style="border-bottom:none">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div><div class="contact-label">WhatsApp</div><div class="contact-value">+250 783 737 393</div></div>
+      </div>
+    </div>
+    <div class="partner-imgs fade-in fade-in-delay-2">
+      <a href="https://www.alicecop.com/" target="_blank"><img class="partner-img" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/47e1b645-92e1-43e8-ba17-f60d7c760129__10001.png" alt="Partner"/></a>
+      <a href="https://www.tsindamedia.com/" target="_blank"><img class="partner-img" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/fc737ace-30e4-4d52-b13c-511c50ea6135__10001.png" alt="Partner"/></a>
+      <a href="https://www.upskillshub.com/" target="_blank"><img class="partner-img" src="https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/00ac9a83-7fa7-447f-acbf-bc7b8fa56dfa__10001-1.jpg" alt="Partner"/></a>
+    </div>
+  </div>
+
+  <div class="hero-quote fade-in">Consistency Builds Success in Trading.</div>
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-brand">Chriss<span>FX</span>1</div>
+        <div class="footer-brand-desc">Forex &amp; Gold trading mentorship from Kigali, Rwanda. Discipline. Risk Management. Consistency.</div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a href="https://wa.me/250783737393" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.25);color:#25D366;font-size:12px;font-weight:700;text-decoration:none;transition:all .2s">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://discord.gg/qEpubQtnV" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(114,137,218,.1);border:1px solid rgba(114,137,218,.25);color:#7289da;font-size:12px;font-weight:700;text-decoration:none">
+            🎮 Discord
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-map-col">
+        <div class="footer-map-title">📍 Our Location — Kigali, Rwanda</div>
+        <div class="footer-map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!4v1714000000000!6m8!1m7!1sexe8PHUf6C70sNOi5wkFNA!2m2!1d-1.9460694!2d30.0594763!3f20.195923!4f0!5f0.7820865974627469"
+            style="width:100%;height:100%;border:0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Chriss Forex Trading — Kigali Rwanda">
+          </iframe>
+        </div>
+        <a class="footer-map-link" href="https://www.google.com/maps/place/Tsinda+Media/@-1.9462632,30.0594542,17z" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Open in Google Maps — Chriss Forex Trading -Kigali Rwanda
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-brand" style="font-size:14px">Chriss<span>FX</span>1</div>
+      <div class="footer-copy">© 2026 Chriss Forex Trading — Kigali, Rwanda</div>
+      <div class="footer-powered">Powered by Chrissfx1</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Hidden file input for trade strip upload -->
+<input type="file" id="trade-strip-input-global" accept="image/*" style="display:none" onchange="handleTradeStripUpload(event)"/>
 
 <script>
-// ===== VIDEO INTRO SCREEN =====
-(function() {
-  const circumference = 2 * Math.PI * 26; // r=26
+// ===== INTRO SLIDESHOW DOTS =====
+(function(){
+  const dots = document.querySelectorAll('.intro-dot');
+  let current = 0;
+  setInterval(()=>{
+    dots[current].classList.remove('active');
+    current = (current+1)%dots.length;
+    dots[current].classList.add('active');
+  },5000);
+})();
+
+// ===== INTRO TIMER =====
+(function(){
+  const circumference = 2*Math.PI*26;
   const fill = document.getElementById('intro-timer-fill');
   const numEl = document.getElementById('intro-timer-num');
   const btn = document.getElementById('intro-proceed-btn');
-  const screen = document.getElementById('intro-screen');
-
   fill.style.strokeDasharray = circumference;
   fill.style.strokeDashoffset = 0;
-
-  let seconds = 5;
+  let seconds = 10;
   numEl.textContent = seconds;
-
-  // prevent page scroll while intro is showing
   document.body.style.overflow = 'hidden';
-
-  function tick() {
+  function tick(){
     seconds--;
     numEl.textContent = seconds;
-    // drain the ring
-    fill.style.strokeDashoffset = circumference * (1 - seconds / 5);
-
-    if (seconds <= 0) {
-      // Show the proceed button
-      btn.classList.add('visible');
-      btn.style.animation = 'introFadeUp 0.6s ease both, btnPulse 2.5s 0.6s ease-in-out infinite';
-    } else {
-      setTimeout(tick, 1000);
-    }
+    fill.style.strokeDashoffset = circumference*(1-seconds/5);
+    if(seconds<=0){ btn.classList.add('visible'); }
+    else{ setTimeout(tick,1000); }
   }
-  setTimeout(tick, 1000);
-
-  window.proceedToMain = function() {
-    screen.classList.add('hide');
-    document.body.style.overflow = '';
-    setTimeout(() => { screen.style.display = 'none'; }, 850);
+  setTimeout(tick,1000);
+  window.proceedToMain = function(){
+    const screen = document.getElementById('intro-screen');
+    screen.style.opacity='0';screen.style.transform='scale(1.04)';
+    screen.style.transition='opacity .8s ease,transform .8s ease';
+    document.body.style.overflow='';
+    setTimeout(()=>{ screen.style.display='none'; },850);
   };
 })();
 
-
-(function() {
-  const manifest = {
-    name: "Chriss Forex Trading",
-    short_name: "ChrissFX",
-    description: "Forex and Gold trading mentor based in Rwanda",
-    start_url: "./",
-    display: "standalone",
-    background_color: "#000000",
-    theme_color: "#000000",
-    orientation: "portrait-primary",
-    icons: [
-      { src: "https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png", sizes: "192x192", type: "image/png" },
-      { src: "https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png", sizes: "512x512", type: "image/png" }
-    ]
-  };
-  const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  document.getElementById('pwa-manifest').href = url;
-})();
-
-// ===== SERVICE WORKER (inline blob) =====
-const swCode = `
-const CACHE = 'chriss-fx-v1';
-const ASSETS = [self.location.pathname];
-
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())
-  );
-});
-
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(cached => {
-      const net = fetch(e.request).then(res => {
-        if (res && res.status === 200 && e.request.method === 'GET') {
-          const clone = res.clone();
-          caches.open(CACHE).then(c => c.put(e.request, clone));
-        }
-        return res;
-      });
-      return cached || net;
-    })
-  );
-});
-
-// Notify clients of updates
-self.addEventListener('message', e => {
-  if (e.data === 'SKIP_WAITING') self.skipWaiting();
-});
-`;
-
-if ('serviceWorker' in navigator) {
-  const swBlob = new Blob([swCode], { type: 'application/javascript' });
-  const swUrl = URL.createObjectURL(swBlob);
-  navigator.serviceWorker.register(swUrl).then(reg => {
-    reg.addEventListener('updatefound', () => {
-      const newWorker = reg.installing;
-      newWorker.addEventListener('statechange', () => {
-        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          showUpdateToast();
-        }
-      });
-    });
-  }).catch(() => {});
-
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    window.location.reload();
-  });
+// ===== MOBILE NAV =====
+function toggleMobileNav(){
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger-btn');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
 }
-
-// ===== PWA INSTALL =====
-let deferredPrompt = null;
-const banner = document.getElementById('pwa-banner');
-
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  setTimeout(() => {
-    banner.style.display = 'block';
-    requestAnimationFrame(() => banner.classList.add('show'));
-  }, 2500);
-});
-
-window.addEventListener('appinstalled', () => {
-  banner.classList.remove('show');
-  setTimeout(() => banner.style.display = 'none', 500);
-  deferredPrompt = null;
-});
-
-function installPWA() {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(choice => {
-    if (choice.outcome === 'accepted') {
-      banner.classList.remove('show');
-      setTimeout(() => banner.style.display = 'none', 500);
-    }
-    deferredPrompt = null;
-  });
+function closeMobileNav(){
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.getElementById('hamburger-btn').classList.remove('open');
 }
-
-function dismissBanner() {
-  banner.classList.remove('show');
-  setTimeout(() => banner.style.display = 'none', 500);
-}
-
-// ===== UPDATE TOAST =====
-function showUpdateToast() {
-  const toast = document.getElementById('update-toast');
-  toast.classList.add('show');
-}
-
-function reloadForUpdate() {
-  if (navigator.serviceWorker.controller) {
-    navigator.serviceWorker.controller.postMessage('SKIP_WAITING');
+// Close on outside click
+document.addEventListener('click',e=>{
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger-btn');
+  if(nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)){
+    closeMobileNav();
   }
-  window.location.reload();
-}
+});
+
+// ===== PWA =====
+(function(){
+  const manifest={name:"ChrissFX1",short_name:"ChrissFX1",description:"Forex and Gold trading mentor based in Rwanda",start_url:"./",display:"standalone",background_color:"#000000",theme_color:"#000000",icons:[{src:"https://cdn.grapesjs.com/workspaces/cmonlryhk059c3e8olp2kg7n9/assets/2adf032d-a062-4074-9d97-181b5ba93809__notegptimage20260423214034.png",sizes:"192x192",type:"image/png"}]};
+  const blob=new Blob([JSON.stringify(manifest)],{type:'application/json'});
+  document.getElementById('pwa-manifest').href=URL.createObjectURL(blob);
+})();
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  setTimeout(()=>{
+    const banner=document.getElementById('pwa-banner');
+    banner.style.display='block';requestAnimationFrame(()=>banner.classList.add('show'));
+  },4000);
+});
+function installPWA(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{dismissBanner();deferredPrompt=null;});}
+function dismissBanner(){const b=document.getElementById('pwa-banner');b.classList.remove('show');setTimeout(()=>b.style.display='none',500);}
 
 // ===== SCROLL ANIMATIONS =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
       entry.target.classList.add('visible');
-      // Trigger counter if inside target
       entry.target.querySelectorAll('.counter-val').forEach(animateCounter);
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+},{threshold:.1});
+document.querySelectorAll('.fade-in,.slide-in-left').forEach(el=>observer.observe(el));
 
-document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-  observer.observe(el);
-});
-
-// Also observe top elements visible on load
-document.querySelectorAll('.slide-in-left').forEach(el => {
-  const rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight) el.classList.add('visible');
-});
-
-// ===== COUNTER ANIMATION =====
-function animateCounter(el) {
-  if (el.dataset.animated) return;
-  el.dataset.animated = true;
-  const target = parseInt(el.dataset.target);
-  const duration = 1200;
-  const start = performance.now();
-  function step(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target;
+// ===== COUNTER =====
+function animateCounter(el){
+  if(el.dataset.animated)return;
+  el.dataset.animated=true;
+  const target=parseInt(el.dataset.target);
+  const dur=1200;const start=performance.now();
+  function step(now){
+    const elapsed=now-start,progress=Math.min(elapsed/dur,1);
+    const eased=1-Math.pow(1-progress,3);
+    el.textContent=Math.floor(eased*target);
+    if(progress<1)requestAnimationFrame(step);
+    else el.textContent=target;
   }
   requestAnimationFrame(step);
 }
 
-// ===== FLOATING PARTICLES =====
-function createParticles() {
-  const colors = ['#cf549e', '#28E98C', '#ffb347', '#b9227d'];
-  for (let i = 0; i < 12; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random() * 4 + 2;
-    p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${Math.random()*100}vw;
-      background:${colors[Math.floor(Math.random()*colors.length)]};
-      animation-duration:${Math.random()*15+10}s;
-      animation-delay:${Math.random()*10}s;
-    `;
+// ===== WHATSAPP SEND =====
+function sendWA(){
+  const input=document.getElementById('wa-input');
+  const msg=input.value.trim();
+  if(!msg)return;
+  window.open(`https://wa.me/250783737393?text=${encodeURIComponent(msg)}`,'_blank');
+  input.value='';
+}
+document.getElementById('wa-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendWA();});
+
+// ===== TRADE STRIP UPLOAD =====
+let currentTradeEl=null;
+function uploadTradeStrip(el){
+  currentTradeEl=el;
+  document.getElementById('trade-strip-input-global').click();
+}
+function handleTradeStripUpload(e){
+  const file=e.target.files[0];if(!file||!currentTradeEl)return;
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    const el=currentTradeEl;
+    el.innerHTML=`<img src="${ev.target.result}" alt="Trade Screenshot" style="width:100%;height:100%;object-fit:cover;display:block"/>`;
+    const tag=el.querySelector('.trade-strip-tag');
+    if(!tag){
+      const t=document.createElement('span');
+      t.className='trade-strip-tag';t.textContent='✅ Win';
+      el.appendChild(t);
+    }
+  };
+  reader.readAsDataURL(file);
+  e.target.value='';
+}
+
+// ===== LIGHTBOX =====
+function openLightbox(img){
+  document.getElementById('lightbox-img').src=img.src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+
+// ===== PARTICLES =====
+(function(){
+  const colors=['#cf549e','#28E98C','#ffb347','#b9227d'];
+  for(let i=0;i<14;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const size=Math.random()*4+2;
+    p.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}vw;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*12}s;`;
     document.body.appendChild(p);
   }
-}
-createParticles();
+})();
 
-// ===== HERO LOAD ANIMATION =====
-window.addEventListener('load', () => {
-  document.querySelectorAll('.slide-in-left').forEach(el => {
-    setTimeout(() => el.classList.add('visible'), 100);
-  });
-  document.querySelectorAll('.fade-in:not([class*="delay"])').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      setTimeout(() => {
-        el.classList.add('visible');
-        el.querySelectorAll('.counter-val').forEach(animateCounter);
-      }, 300);
-    }
+// ===== INITIAL VISIBILITY CHECK =====
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.slide-in-left').forEach(el=>setTimeout(()=>el.classList.add('visible'),200));
+  document.querySelectorAll('.fade-in').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight)setTimeout(()=>{el.classList.add('visible');el.querySelectorAll('.counter-val').forEach(animateCounter);},400);
   });
 });
 </script>
