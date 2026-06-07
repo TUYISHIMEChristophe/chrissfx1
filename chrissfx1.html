@@ -826,6 +826,60 @@ body::after{
 .particle{position:fixed;pointer-events:none;border-radius:50%;animation:float linear infinite;opacity:0;z-index:0}
 @keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.3}90%{opacity:.15}100%{transform:translateY(-10vh) scale(1);opacity:0}}
 
+/* ===== PIP CALCULATOR ===== */
+.pip-calc-section{
+  margin:40px 0 0;
+  background:rgba(40,233,140,.03);
+  border:1px solid rgba(40,233,140,.12);
+  border-radius:20px;padding:28px 24px;
+  position:relative;overflow:hidden;
+}
+.pip-calc-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--green),var(--gold),transparent);
+}
+.pip-pair-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.pip-tab{
+  font-size:12px;padding:5px 12px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);background:transparent;
+  color:#777;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.pip-tab.active,.pip-tab:hover{
+  border-color:rgba(40,233,140,.4);color:var(--green);
+  background:rgba(40,233,140,.07);
+}
+.pip-inputs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.pip-field label{font-size:12px;color:#888;display:block;margin-bottom:5px;font-weight:500}
+.pip-field input,.pip-field select{
+  width:100%;padding:9px 12px;font-size:14px;font-weight:600;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;color:#fff;outline:none;font-family:'DM Sans',sans-serif;
+  transition:border-color .2s;
+}
+.pip-field input:focus,.pip-field select:focus{border-color:rgba(40,233,140,.5)}
+.pip-field select option{background:#111;color:#fff}
+.pip-risk-bar-wrap{margin-bottom:18px}
+.pip-risk-label{display:flex;justify-content:space-between;font-size:12px;color:#888;margin-bottom:6px}
+.pip-risk-bar{height:5px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
+.pip-risk-fill{height:100%;border-radius:4px;background:var(--green);transition:width .3s,background .3s}
+.pip-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.pip-res-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 14px}
+.pip-res-label{font-size:11px;color:#666;margin-bottom:4px;letter-spacing:.3px}
+.pip-res-val{font-size:20px;font-weight:800;color:#fff;font-family:'Syne',sans-serif}
+.pip-res-val.pip-danger{color:#f66}
+.pip-res-val.pip-success{color:var(--green)}
+.pip-res-val.pip-gold{color:var(--gold)}
+.pip-tip{
+  font-size:13px;color:#aaa;line-height:1.6;
+  background:rgba(40,233,140,.05);border:1px solid rgba(40,233,140,.15);
+  border-radius:10px;padding:12px 14px;
+  border-left:3px solid var(--green);border-radius:0 10px 10px 0;
+}
+@media(max-width:480px){
+  .pip-inputs{grid-template-columns:1fr 1fr}
+  .pip-results{grid-template-columns:1fr 1fr}
+}
+
 /* ===== MARKET HOURS TRACKER ===== */
 .market-tracker-section{
   margin:40px 0 0;
@@ -996,6 +1050,7 @@ body::after{
     <a href="#forex-section">Education</a>
     <a href="#funded-section">Funded</a>
     <!-- <a href="#trades-section">Trades</a> -->
+    <a href="#pip-calc-section">Calculator</a>
     <a href="#markets-section">Markets</a>
     <a href="#contact-section">Contact</a>
     <a class="top-bar-wa" href="https://whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank">
@@ -1014,6 +1069,7 @@ body::after{
   <a href="#forex-section" onclick="closeMobileNav()">📊 Education</a>
   <a href="#funded-section" onclick="closeMobileNav()">💼 Funded Accounts</a>
   <!-- <a href="#trades-section" onclick="closeMobileNav()">📸 My Trades</a> -->
+  <a href="#pip-calc-section" onclick="closeMobileNav()">🧮 Pip Calculator</a>
   <a href="#markets-section" onclick="closeMobileNav()">🕐 Market Hours</a>
   <a href="#contact-section" onclick="closeMobileNav()">📞 Contact</a>
   <a class="mob-wa" href="https://whatsapp.com/channel/0029Vb88iT59RZAdzsjkm00j" target="_blank" onclick="closeMobileNav()">
@@ -1377,7 +1433,96 @@ A funded account allows you to trade using capital provided by a trading firm in
         </div>
       </div>
 
+      <!-- ===== PIP & POSITION SIZE CALCULATOR ===== -->
+      <div id="pip-calc-section" class="pip-calc-section fade-in" style="margin-top:40px">
+        <div class="sec-header" style="padding:0 0 16px">
+          <svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+          <div>
+            <div class="sec-title">Pip & Position Size Calculator</div>
+            <div style="font-size:13px;color:#888;margin-top:3px">Calculate your exact lot size before every trade</div>
+          </div>
+        </div>
+
+        <div class="pip-pair-tabs" id="pip-tabs">
+          <button class="pip-tab active" data-pair="XAUUSD" onclick="pipSetPair(this)">XAUUSD</button>
+          <button class="pip-tab" data-pair="EURUSD" onclick="pipSetPair(this)">EURUSD</button>
+          <button class="pip-tab" data-pair="GBPUSD" onclick="pipSetPair(this)">GBPUSD</button>
+          <button class="pip-tab" data-pair="USDJPY" onclick="pipSetPair(this)">USDJPY</button>
+          <button class="pip-tab" data-pair="GBPJPY" onclick="pipSetPair(this)">GBPJPY</button>
+          <button class="pip-tab" data-pair="AUDUSD" onclick="pipSetPair(this)">AUDUSD</button>
+          <button class="pip-tab" data-pair="BTCUSD" onclick="pipSetPair(this)">BTCUSD</button>
+        </div>
+
+        <div class="pip-inputs">
+          <div class="pip-field">
+            <label>Pair / Instrument</label>
+            <select id="pip-pair" onchange="pipCalc()">
+              <option value="XAUUSD">XAUUSD (Gold)</option>
+              <option value="EURUSD">EURUSD</option>
+              <option value="GBPUSD">GBPUSD</option>
+              <option value="USDJPY">USDJPY</option>
+              <option value="GBPJPY">GBPJPY</option>
+              <option value="AUDUSD">AUDUSD</option>
+              <option value="BTCUSD">BTCUSD</option>
+            </select>
+          </div>
+          <div class="pip-field">
+            <label>Account balance ($)</label>
+            <input type="number" id="pip-balance" value="1000" min="1" oninput="pipCalc()">
+          </div>
+          <div class="pip-field">
+            <label>Risk % per trade</label>
+            <input type="number" id="pip-risk" value="1" min="0.1" max="100" step="0.1" oninput="pipCalc()">
+          </div>
+          <div class="pip-field">
+            <label>Stop loss (pips)</label>
+            <input type="number" id="pip-sl" value="20" min="0.1" step="0.1" oninput="pipCalc()">
+          </div>
+          <div class="pip-field">
+            <label>Take profit (pips)</label>
+            <input type="number" id="pip-tp" value="40" min="0.1" step="0.1" oninput="pipCalc()">
+          </div>
+        </div>
+
+        <div class="pip-risk-bar-wrap">
+          <div class="pip-risk-label">
+            <span>Risk level</span>
+            <span id="pip-risk-txt">1% — Conservative ✅</span>
+          </div>
+          <div class="pip-risk-bar"><div class="pip-risk-fill" id="pip-risk-fill" style="width:10%"></div></div>
+        </div>
+
+        <div class="pip-results">
+          <div class="pip-res-card">
+            <div class="pip-res-label">📦 Lot size</div>
+            <div class="pip-res-val" id="pip-res-lots">—</div>
+          </div>
+          <div class="pip-res-card">
+            <div class="pip-res-label">💸 $ at risk</div>
+            <div class="pip-res-val pip-danger" id="pip-res-risk">—</div>
+          </div>
+          <div class="pip-res-card">
+            <div class="pip-res-label">📊 Pip value</div>
+            <div class="pip-res-val pip-gold" id="pip-res-pipval">—</div>
+          </div>
+          <div class="pip-res-card">
+            <div class="pip-res-label">🎯 Potential profit</div>
+            <div class="pip-res-val pip-success" id="pip-res-profit">—</div>
+          </div>
+          <div class="pip-res-card">
+            <div class="pip-res-label">⚖️ RR ratio</div>
+            <div class="pip-res-val" id="pip-res-rr">—</div>
+          </div>
+          <div class="pip-res-card">
+            <div class="pip-res-label">🔁 Break-even win%</div>
+            <div class="pip-res-val" id="pip-res-be">—</div>
+          </div>
+        </div>
+        <div class="pip-tip" id="pip-tip">Fill in your trade details above to calculate your position size.</div>
+      </div>
+
       <!-- ===== MARKET HOURS TRACKER ===== -->
+
       <div id="markets-section" class="market-tracker-section fade-in" style="margin-top:40px">
         <div class="mkt-header">
           <div class="mkt-title-row">
@@ -2012,6 +2157,57 @@ window.addEventListener('load',()=>{
     if(rect.top<window.innerHeight)setTimeout(()=>{el.classList.add('visible');el.querySelectorAll('.counter-val').forEach(animateCounter);},400);
   });
 });
+
+// ===== PIP CALCULATOR =====
+(function(){
+  const PAIRS={
+    XAUUSD:{pipVal:10,label:'Gold'},
+    EURUSD:{pipVal:10,label:'EUR/USD'},
+    GBPUSD:{pipVal:10,label:'GBP/USD'},
+    USDJPY:{pipVal:9.1,label:'USD/JPY'},
+    GBPJPY:{pipVal:9.1,label:'GBP/JPY'},
+    AUDUSD:{pipVal:10,label:'AUD/USD'},
+    BTCUSD:{pipVal:0.001,label:'BTC/USD'}
+  };
+  window.pipSetPair=function(btn){
+    document.querySelectorAll('.pip-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('pip-pair').value=btn.dataset.pair;
+    pipCalc();
+  };
+  window.pipCalc=function(){
+    const key=document.getElementById('pip-pair').value;
+    const p=PAIRS[key]||PAIRS.EURUSD;
+    const balance=parseFloat(document.getElementById('pip-balance').value)||1000;
+    const riskPct=parseFloat(document.getElementById('pip-risk').value)||1;
+    const sl=parseFloat(document.getElementById('pip-sl').value)||20;
+    const tp=parseFloat(document.getElementById('pip-tp').value)||40;
+    const riskAmt=balance*(riskPct/100);
+    const lots=riskAmt/(sl*p.pipVal);
+    const pipValTrade=lots*p.pipVal;
+    const profit=tp*pipValTrade;
+    const rr=tp/sl;
+    const be=1/(1+rr)*100;
+    document.getElementById('pip-res-lots').textContent=lots>=0.01?lots.toFixed(2):'<0.01';
+    document.getElementById('pip-res-risk').textContent='$'+riskAmt.toFixed(2);
+    document.getElementById('pip-res-pipval').textContent='$'+pipValTrade.toFixed(2)+'/pip';
+    document.getElementById('pip-res-profit').textContent='$'+profit.toFixed(2);
+    document.getElementById('pip-res-rr').textContent='1 : '+rr.toFixed(2);
+    document.getElementById('pip-res-be').textContent=Math.round(be)+'%';
+    const fill=document.getElementById('pip-risk-fill');
+    fill.style.width=Math.min(riskPct*10,100)+'%';
+    fill.style.background=riskPct>3?'#f66':riskPct>2?'var(--gold)':'var(--green)';
+    const lbl=riskPct<=1?'Conservative ✅':riskPct<=2?'Moderate ⚠':riskPct<=3?'Aggressive 🔴':'Very High Risk ❌';
+    document.getElementById('pip-risk-txt').textContent=riskPct+'% — '+lbl;
+    let tip='';
+    if(rr<1)tip='⚠ RR below 1:1 — you risk more than you can gain. Widen your TP or tighten your SL.';
+    else if(rr>=2&&riskPct<=1)tip='✅ Solid setup — 1:'+rr.toFixed(1)+' RR at '+riskPct+'% risk. This is a quality edge.';
+    else if(riskPct>3)tip='🔴 Risk above 3% — ChrissFX1 recommends max 1–2% per trade to protect your capital long-term.';
+    else tip='📦 Lot size '+lots.toFixed(2)+' · Risk $'+riskAmt.toFixed(2)+' to earn $'+profit.toFixed(2)+' · RR 1:'+rr.toFixed(2);
+    document.getElementById('pip-tip').textContent=tip;
+  };
+  pipCalc();
+})();
 
 // ===== MARKET HOURS TRACKER =====
 (function(){
